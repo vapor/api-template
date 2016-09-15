@@ -3,11 +3,13 @@
 #export("head") {
 	<title>My App</title>
 
-	<link rel="stylesheet" href="styles/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700,300" rel="stylesheet">
+	<link rel="stylesheet" href="/styles/app.css">
 }
 
 #export("body") {
-	<div class="wrapper">
-		<img src="https://pbs.twimg.com/profile_images/760551690902900737/9vosg_bf.jpg">
-	</div>
+    <div class="message">
+        <img src="https://pbs.twimg.com/profile_images/760551690902900737/9vosg_bf.jpg">
+        <h1>#(message)</h1>
+    </div>
 }
