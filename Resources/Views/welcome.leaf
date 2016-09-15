@@ -1,0 +1,13 @@
+#extend("base")
+
+#export("head") {
+	<title>My App</title>
+
+	<link rel="stylesheet" href="styles/app.css">
+}
+
+#export("body") {
+	<div class="wrapper">
+		<img src="https://pbs.twimg.com/profile_images/760551690902900737/9vosg_bf.jpg">
+	</div>
+}
