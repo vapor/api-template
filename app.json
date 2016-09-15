@@ -1,12 +1,12 @@
 {
-    "name": "vapor-example",
+    "name": "VaporApp",
     "scripts": {},
     "env": {},
     "formation": {},
     "addons": [],
     "buildpacks": [
         {
-            "url": "https://github.com/kylef/heroku-buildpack-swift"
+            "url": "https://github.com/vapor/heroku-buildpack"
         }
     ]
 }
