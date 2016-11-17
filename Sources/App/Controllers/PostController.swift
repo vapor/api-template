@@ -7,9 +7,9 @@ final class PostController: ResourceRepresentable {
     }
 
     func create(request: Request) throws -> ResponseRepresentable {
-        var todo = try request.post()
-        try todo.save()
-        return todo
+        var post = try request.post()
+        try post.save()
+        return post
     }
 
     func show(request: Request, post: Post) throws -> ResponseRepresentable {
