@@ -2,6 +2,6 @@
     "tls": {
         "verifyHost": true,
         "verifyCertificates": true,
-        "certificates": "mozilla"
+        "certificates": "defaults"
     }
 }
