@@ -6,7 +6,7 @@ let package = Package(
     name: "VaporApp",
     targets: [
         Target(name: "AppLogic"),
-        Target(name: "App", dependencies: ["AppLogic"]),
+        Target(name: "Run", dependencies: ["AppLogic"]),
     ],
     dependencies: [
         .Package(url: "https://github.com/vapor/vapor.git", alpha),
