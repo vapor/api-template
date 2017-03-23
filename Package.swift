@@ -11,7 +11,6 @@ let package = Package(
     dependencies: [
         .Package(url: "https://github.com/vapor/vapor.git", alpha),
         .Package(url: "https://github.com/vapor/fluent-provider.git", majorVersion: 0),
-        .Package(url: "https://github.com/vapor/leaf-provider.git", majorVersion: 0),
     ],
     exclude: [
         "Config",

@@ -29,7 +29,6 @@ class RouteTests: XCTestCase {
         XCTAssertEqual(liveResponse.status, .ok)
         let string = liveResponse.body.bytes?.makeString() ?? ""
         XCTAssert(!string.isEmpty)
-        XCTAssert(string.contains("<!DOCTYPE html>"))
-        XCTAssertEqual(liveResponse.headers["Content-Type"], "text/html; charset=utf-8")
+        XCTAssert(string.contains("Host: 0.0.0.0"))
     }
 }

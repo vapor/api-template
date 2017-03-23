@@ -68,12 +68,6 @@
       "version": "1.0.1"
     },
     {
-      "package": "Leaf",
-      "reason": null,
-      "repositoryURL": "https://github.com/vapor/leaf.git",
-      "version": "2.0.0-alpha.2"
-    },
-    {
       "package": "Multipart",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/multipart.git",
@@ -132,12 +126,6 @@
       "reason": null,
       "repositoryURL": "https://github.com/vapor/fluent-provider.git",
       "version": "0.10.0"
-    },
-    {
-      "package": "VaporLeaf",
-      "reason": null,
-      "repositoryURL": "https://github.com/vapor/leaf-provider.git",
-      "version": "0.3.0"
     }
   ],
   "version": 1
