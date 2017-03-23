@@ -10,8 +10,6 @@ final class Post: Model {
 
     init(content: String) {
         self.content = content
-        let newId = UUID().makeNode(in: nil)
-        self.id = Identifier(newId)
     }
 
     // MARK: Data Initializers

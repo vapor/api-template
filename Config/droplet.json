@@ -3,5 +3,6 @@
     "client": "engine",
     "console": "terminal",
     "log": "console",
-    "hash": "crypto"
+    "hash": "crypto",
+    "cipher": "crypto"
 }

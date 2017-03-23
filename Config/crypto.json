@@ -3,5 +3,9 @@
         "encoding": "plain",
         "method": "sha256",
         "key": "password"
+    },
+    "cipher": {
+        "method": "aes256",
+        "key": "passwordpasswordpasswordpassword"
     }
 }
