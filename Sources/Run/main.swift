@@ -1,4 +1,4 @@
-import AppLogic
+import App
 
 /// We have isolated all of our App's logic into
 /// the AppLogic module because it makes our app 
@@ -16,5 +16,5 @@ import AppLogic
 ///
 /// .run() tells the drop to begin serving
 let drop = try Droplet()
-try AppLogic.setup(drop)
+try App.setup(drop)
 try drop.run()

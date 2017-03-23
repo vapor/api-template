@@ -3,7 +3,7 @@ import Foundation
 import Testing
 import HTTP
 @testable import Vapor
-@testable import AppLogic
+@testable import App
 
 class RouteTests: XCTestCase {
     /// This is a requirement for XCTest on Linux
