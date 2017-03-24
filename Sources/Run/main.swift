@@ -1,7 +1,7 @@
 import App
 
 /// We have isolated all of our App's logic into
-/// the AppLogic module because it makes our app 
+/// the App module because it makes our app
 /// more testable.
 ///
 /// In general, the executable portion of our App
@@ -10,11 +10,12 @@ import App
 ///
 /// We simply initialize our Droplet, optionally
 /// passing in values if necessary
-/// Then, we pass it to our AppLogic's setup function
+/// Then, we pass it to our App's setup function
 /// this should setup all the routes and special
 /// features of our app
 ///
-/// .run() tells the drop to begin serving
+/// .run() runs the Droplet's commands, 
+/// if no command is given, it will default to "serve"
 let drop = try Droplet()
 try App.setup(drop)
 try drop.run()
