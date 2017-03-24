@@ -1,45 +1,59 @@
 import Vapor
-import Fluent
+import VaporFluent
 import Foundation
 
 final class Post: Model {
-    var id: Node?
+    let storage = Storage()
     var content: String
-    
+
+    // MARK: General Initializer
+
     init(content: String) {
-        self.id = UUID().uuidString.makeNode()
         self.content = content
     }
 
-    init(node: Node, in context: Context) throws {
-        id = try node.extract("id")
-        content = try node.extract("content")
+    // MARK: Data Initializers
+
+    convenience init(row: Row) throws {
+        try self.init(node: row)
     }
 
-    func makeNode(context: Context) throws -> Node {
-        return try Node(node: [
-            "id": id,
-            "content": content
-        ])
+    convenience init(json: JSON) throws {
+        try self.init(node: json)
     }
-}
 
-extension Post {
-    /**
-        This will automatically fetch from database, using example here to load
-        automatically for example. Remove on real models.
-    */
-    public convenience init?(from string: String) throws {
-        self.init(content: string)
+    init(node: Node) throws {
+        content = try node.get("content")
+        id = try node.get(idKey)
+    }
+
+    // MARK: Data Constructors
+
+    func makeRow() throws -> Row {
+        return try makeNode(in: rowContext).converted()
+    }
+
+    func makeJSON() throws -> JSON {
+        return try makeNode(in: jsonContext).converted()
+    }
+
+    func makeNode(in context: Context?) throws -> Node {
+        var node = Node(context)
+        try node.set(idKey, id)
+        try node.set("content", content)
+        return node
     }
 }
 
 extension Post: Preparation {
     static func prepare(_ database: Database) throws {
-        //
+        try database.create(self) { builder in
+            builder.id(for: self)
+            builder.string("content")
+        }
     }
 
     static func revert(_ database: Database) throws {
-        //
+        try database.delete(self)
     }
 }

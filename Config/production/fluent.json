@@ -1,0 +1,4 @@
+{
+    "driver": "mysql",
+    "_comment": "In production environments, we use MySQL"
+}
