@@ -1,5 +1,5 @@
 @_exported import Vapor
-import VaporFluent
+import FluentProvider
 
 public func setup(_ drop: Droplet) throws {
     try setupProviders(drop)
@@ -9,7 +9,7 @@ public func setup(_ drop: Droplet) throws {
 }
 
 private func setupProviders(_ drop: Droplet) throws {
-    let fluent = VaporFluent.Provider()
+    let fluent = FluentProvider.Provider()
     try drop.addProvider(fluent)
 }
 

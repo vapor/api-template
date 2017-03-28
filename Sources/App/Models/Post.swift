@@ -1,5 +1,5 @@
 import Vapor
-import VaporFluent
+import FluentProvider
 import Foundation
 
 final class Post: Model {

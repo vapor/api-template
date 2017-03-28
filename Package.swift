@@ -1,7 +1,5 @@
 import PackageDescription
 
-let alpha = Version(2,0,0, prereleaseIdentifiers: ["alpha"])
-
 let package = Package(
     name: "VaporApp",
     targets: [
@@ -9,8 +7,8 @@ let package = Package(
         Target(name: "Run", dependencies: ["App"]),
     ],
     dependencies: [
-        .Package(url: "https://github.com/vapor/vapor.git", alpha),
-        .Package(url: "https://github.com/vapor/fluent-provider.git", majorVersion: 0),
+        .Package(url: "https://github.com/vapor/vapor.git", Version(2,0,0, prereleaseIdentifiers: ["beta"])),
+        .Package(url: "https://github.com/vapor/fluent-provider.git", Version(1,0,0, prereleaseIdentifiers: ["beta"])),
     ],
     exclude: [
         "Config",
