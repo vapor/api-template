@@ -7,7 +7,6 @@
     "cipher": "crypto",
     "middleware": [
         "date",
-        "file",
-        "head"
+        "file"
     ]
 }
