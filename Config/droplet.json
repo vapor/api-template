@@ -6,7 +6,6 @@
     "hash": "crypto",
     "cipher": "crypto",
     "middleware": [
-        "sessions",
         "date",
         "file",
         "head"
