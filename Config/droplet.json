@@ -4,5 +4,11 @@
     "console": "terminal",
     "log": "console",
     "hash": "crypto",
-    "cipher": "crypto"
+    "cipher": "crypto",
+    "middleware": [
+        "sessions",
+        "date",
+        "file",
+        "head"
+    ]
 }
