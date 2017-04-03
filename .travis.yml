@@ -7,13 +7,13 @@ dist: trusty
 
 osx_image: xcode8.3
 before_install:
-    - if [[ $TRAVIS_OS_NAME == "osx" ]]; then
+    - if [ $TRAVIS_OS_NAME == "osx" ]; then
             brew tap vapor/tap;
             brew update;
             brew install vapor;
         else
-            eval "$(curl -sL https://apt.vapor.sh)"
-            sudo apt-get install vapor
+            eval "$(curl -sL https://apt.vapor.sh)";
+            sudo apt-get install vapor;
         fi
 
 script:
