@@ -14,6 +14,7 @@ before_install:
         else
             eval "$(curl -sL https://apt.vapor.sh)";
             sudo apt-get install vapor;
+            sudo chmod -R a+rx /usr/;
         fi
 
 script:
