@@ -28,14 +28,14 @@ final class PostController: ResourceRepresentable {
     /// 'posts/l2jd9' we should remove that resource from the database
     func delete(request: Request, post: Post) throws -> ResponseRepresentable {
         try post.delete()
-        return JSON([:])
+        return Response(status: .ok)
     }
 
     /// When the consumer calls 'DELETE' on the entire table, ie:
     /// '/posts' we should remove the entire table
     func clear(request: Request) throws -> ResponseRepresentable {
-        try Post.query().delete()
-        return JSON([])
+        try Post.makeQuery().delete()
+        return Response(status: .ok)
     }
 
     /// When the user calls 'PATCH' on a specific resource, we should
