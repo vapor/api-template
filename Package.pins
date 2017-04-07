@@ -23,7 +23,7 @@
       "package": "Console",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/console.git",
-      "version": "2.0.0-beta.2"
+      "version": "2.0.0-beta.3"
     },
     {
       "package": "Core",
@@ -53,13 +53,13 @@
       "package": "Fluent",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/fluent.git",
-      "version": "2.0.0-beta.2"
+      "version": "2.0.0-beta.8"
     },
     {
       "package": "FluentProvider",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/fluent-provider.git",
-      "version": "1.0.0-beta.1"
+      "version": "1.0.0-beta.4"
     },
     {
       "package": "JSON",
@@ -77,7 +77,7 @@
       "package": "Multipart",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/multipart.git",
-      "version": "2.0.0-beta.1"
+      "version": "2.0.0-beta.2"
     },
     {
       "package": "Node",
@@ -95,13 +95,13 @@
       "package": "Random",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/random.git",
-      "version": "1.0.0-beta.1"
+      "version": "1.0.0-beta.2"
     },
     {
       "package": "Routing",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/routing.git",
-      "version": "2.0.0-beta.1"
+      "version": "2.0.0-beta.2"
     },
     {
       "package": "SQLite",
@@ -113,19 +113,19 @@
       "package": "Sockets",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/socks.git",
-      "version": "2.0.0-beta.1"
+      "version": "2.0.0-beta.3"
     },
     {
       "package": "TLS",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/tls.git",
-      "version": "2.0.0-beta.1"
+      "version": "2.0.0-beta.2"
     },
     {
       "package": "Vapor",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/vapor.git",
-      "version": "2.0.0-beta.1"
+      "version": "2.0.0-beta.2"
     }
   ],
   "version": 1
