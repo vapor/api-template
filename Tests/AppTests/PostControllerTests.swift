@@ -1,11 +1,11 @@
 import XCTest
-import Foundation
 import Testing
 import HTTP
+import Sockets
 @testable import Vapor
 @testable import App
 
-class PostControllerTests: XCTestCase {
+class PostControllerTests: TestCase {
     /// This is a requirement for XCTest on Linux
     /// to function properly.
     /// See ./Tests/LinuxMain.swift for examples
@@ -15,6 +15,7 @@ class PostControllerTests: XCTestCase {
 
     let initialMessage = "I'm a post"
     let updatedMessage = "I have been updated \(Date())"
+    var port: Sockets.Port!
 
     /// For these tests, we won't be spinning up a live
     /// server, and instead we'll be passing our constructed
@@ -23,8 +24,10 @@ class PostControllerTests: XCTestCase {
     /// application in a convenient and safe manner
     /// See RouteTests for an example of a live server test
     let drop = try! Droplet.testable()
-
+    
     func testPostRoutes() throws {
+        port = drop.config["server.port"]?.int?.port ?? 8080
+        
         let idOne = try create() ?? -1
         try fetchOne(id: idOne)
         try fetchAll(expectCount: 1)
@@ -47,23 +50,23 @@ class PostControllerTests: XCTestCase {
     }
 
     func create() throws -> Int? {
-        let request = try Request(method: .post, uri: "http://0.0.0.0/posts")
-        request.json = try JSON(node: ["content": initialMessage])
+        let req = Request.makeTest(method: .post, port: port, path: "/posts")
+        req.json = try JSON(node: ["content": initialMessage])
 
-        let response = drop.respond(to: request)
-        let json = response.json
+        let res = try drop.testResponse(to: req)
+        let json = res.json
         XCTAssertNotNil(json)
         XCTAssertNotNil(json?["content"])
         XCTAssertNotNil(json?["id"])
-        XCTAssertEqual(json?["content"], request.json?["content"])
+        XCTAssertEqual(json?["content"], req.json?["content"])
         return try json?.get("id")
     }
 
     func fetchOne(id: Int) throws {
-        let request = try Request(method: .get, uri: "http://0.0.0.0/posts/\(id)")
-        let response = drop.respond(to: request)
+        let req = Request.makeTest(method: .get, port: port, path: "/posts/\(id)")
+        let res = try drop.testResponse(to: req)
 
-        let json = response.json
+        let json = res.json
         XCTAssertNotNil(json)
         XCTAssertNotNil(json?["content"])
         XCTAssertNotNil(json?["id"])
@@ -72,20 +75,20 @@ class PostControllerTests: XCTestCase {
     }
 
     func fetchAll(expectCount count: Int) throws {
-        let request = try Request(method: .get, uri: "http://0.0.0.0/posts")
-        let response = drop.respond(to: request)
+        let req = Request.makeTest(method: .get, port: port, path: "/posts")
+        let res = try drop.testResponse(to: req)
 
-        let json = response.json
+        let json = res.json
         XCTAssertNotNil(json?.array)
         XCTAssertEqual(json?.array?.count, count)
     }
 
     func patch(id: Int) throws {
-        let request = try Request(method: .patch, uri: "http://0.0.0.0/posts/\(id)")
-        request.json = try JSON(node: ["content": updatedMessage])
+        let req = Request.makeTest(method: .patch, port: port, path: "/posts/\(id)")
+        req.json = try JSON(node: ["content": updatedMessage])
 
-        let response = drop.respond(to: request)
-        let json = response.json
+        let res = try drop.testResponse(to: req)
+        let json = res.json
         XCTAssertNotNil(json)
         XCTAssertNotNil(json?["content"])
         XCTAssertNotNil(json?["id"])
@@ -94,11 +97,11 @@ class PostControllerTests: XCTestCase {
     }
 
     func put(id: Int) throws {
-        let request = try Request(method: .put, uri: "http://0.0.0.0/posts/\(id)")
-        request.json = try JSON(node: ["content": updatedMessage])
+        let req = Request.makeTest(method: .put, port: port, path: "/posts/\(id)")
+        req.json = try JSON(node: ["content": updatedMessage])
 
-        let response = drop.respond(to: request)
-        let json = response.json
+        let res = try drop.testResponse(to: req)
+        let json = res.json
         XCTAssertNotNil(json)
         XCTAssertNotNil(json?["content"])
         XCTAssertNotNil(json?["id"])
@@ -107,20 +110,14 @@ class PostControllerTests: XCTestCase {
     }
 
     func deleteOne(id: Int) throws {
-        let request = try Request(method: .delete, uri: "http://0.0.0.0/posts/\(id)")
-        let response = drop.respond(to: request)
-        let json = response.json
-        XCTAssertNotNil(json)
-        XCTAssertNotNil(json?.object)
-        XCTAssertEqual(json?.object?.isEmpty, true)
+        let req = Request.makeTest(method: .delete, port: port, path: "/posts/\(id)")
+        try drop.testResponse(to: req)
+            .assertStatus(is: .ok)
     }
 
     func deleteAll() throws {
-        let request = try Request(method: .delete, uri: "http://0.0.0.0/posts")
-        let response = drop.respond(to: request)
-        let json = response.json
-        XCTAssertNotNil(json)
-        XCTAssertNotNil(json?.array)
-        XCTAssertEqual(json?.array?.isEmpty, true)
+        let req = Request.makeTest(method: .delete, port: port, path: "/posts")
+        try drop.testResponse(to: req)
+            .assertStatus(is: .ok)
     }
 }

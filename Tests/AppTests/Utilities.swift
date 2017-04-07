@@ -1,6 +1,8 @@
 import Foundation
 @testable import App
 @testable import Vapor
+import XCTest
+import Testing
 
 extension Droplet {
     static func testable() throws -> Droplet {
@@ -22,5 +24,11 @@ extension Droplet {
             try! self.run(server: server)
         }
         console.wait(seconds: 0.5)
+    }
+}
+
+class TestCase: XCTestCase {
+    override func setUp() {
+        Testing.onFail = XCTFail
     }
 }
