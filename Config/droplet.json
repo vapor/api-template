@@ -6,6 +6,7 @@
     "hash": "crypto",
     "cipher": "crypto",
     "middleware": [
+        "error",
         "date",
         "file"
     ]
