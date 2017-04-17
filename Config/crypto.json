@@ -1,6 +1,6 @@
 {
     "hash": {
-        "encoding": "plain",
+        "encoding": "hex",
         "method": "sha256",
         "key": "password"
     },
