@@ -15,5 +15,9 @@
         "error",
         "date",
         "file"
+    ],
+    
+    "commands": [
+        "prepare"
     ]
 }

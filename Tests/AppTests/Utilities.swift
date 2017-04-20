@@ -6,22 +6,15 @@ import Testing
 
 extension Droplet {
     static func testable() throws -> Droplet {
-        let drop = try Droplet(arguments: ["vapor", "prepare"])
-        try App.setup(drop)
-        try drop.runCommands()
+        let config = try Config(arguments: ["vapor", "--env=test"])
+        try config.setup()
+        let drop = try Droplet(config)
+        try drop.setup()
         return drop
     }
-
-    // Must be served to activate
-    static func live() throws -> Droplet {
-        let drop = try Droplet(arguments: ["vapor", "serve"])
-        try App.setup(drop)
-        return drop
-    }
-
-    func serveInBackground(_ server: ServerConfig?) throws {
+    func serveInBackground() throws {
         background {
-            try! self.run(server: server)
+            try! self.run()
         }
         console.wait(seconds: 0.5)
     }

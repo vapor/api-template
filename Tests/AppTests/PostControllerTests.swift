@@ -5,17 +5,13 @@ import Sockets
 @testable import Vapor
 @testable import App
 
-class PostControllerTests: TestCase {
-    /// This is a requirement for XCTest on Linux
-    /// to function properly.
-    /// See ./Tests/LinuxMain.swift for examples
-    static let allTests = [
-        ("testPostRoutes", testPostRoutes),
-    ]
+/// This file shows an example of testing an
+/// individual controller without initializing
+/// a Droplet.
 
+class PostControllerTests: TestCase {
     let initialMessage = "I'm a post"
     let updatedMessage = "I have been updated \(Date())"
-    var port: Sockets.Port!
 
     /// For these tests, we won't be spinning up a live
     /// server, and instead we'll be passing our constructed
@@ -23,11 +19,9 @@ class PostControllerTests: TestCase {
     /// this is usually an effective way to test your 
     /// application in a convenient and safe manner
     /// See RouteTests for an example of a live server test
-    let drop = try! Droplet.testable()
+    let controller = PostController()
     
-    func testPostRoutes() throws {
-        port = drop.config["server.port"]?.int?.port ?? 8080
-        
+    func testPostRoutes() throws {        
         let idOne = try create() ?? -1
         try fetchOne(id: idOne)
         try fetchAll(expectCount: 1)
@@ -50,10 +44,10 @@ class PostControllerTests: TestCase {
     }
 
     func create() throws -> Int? {
-        let req = Request.makeTest(method: .post, port: port, path: "/posts")
+        let req = Request.makeTest(method: .post)
         req.json = try JSON(node: ["content": initialMessage])
-
-        let res = try drop.testResponse(to: req)
+        let res = try controller.create(request: req).makeResponse()
+        
         let json = res.json
         XCTAssertNotNil(json)
         XCTAssertNotNil(json?["content"])
@@ -63,8 +57,9 @@ class PostControllerTests: TestCase {
     }
 
     func fetchOne(id: Int) throws {
-        let req = Request.makeTest(method: .get, port: port, path: "/posts/\(id)")
-        let res = try drop.testResponse(to: req)
+        let req = Request.makeTest(method: .get)
+        let post = try Post.find(id)!
+        let res = try controller.show(request: req, post: post).makeResponse()
 
         let json = res.json
         XCTAssertNotNil(json)
@@ -75,8 +70,8 @@ class PostControllerTests: TestCase {
     }
 
     func fetchAll(expectCount count: Int) throws {
-        let req = Request.makeTest(method: .get, port: port, path: "/posts")
-        let res = try drop.testResponse(to: req)
+        let req = Request.makeTest(method: .get)
+        let res = try controller.index(request: req).makeResponse()
 
         let json = res.json
         XCTAssertNotNil(json?.array)
@@ -84,10 +79,11 @@ class PostControllerTests: TestCase {
     }
 
     func patch(id: Int) throws {
-        let req = Request.makeTest(method: .patch, port: port, path: "/posts/\(id)")
+        let req = Request.makeTest(method: .patch)
         req.json = try JSON(node: ["content": updatedMessage])
-
-        let res = try drop.testResponse(to: req)
+        let post = try Post.find(id)!
+        let res = try controller.update(request: req, post: post).makeResponse()
+        
         let json = res.json
         XCTAssertNotNil(json)
         XCTAssertNotNil(json?["content"])
@@ -97,10 +93,11 @@ class PostControllerTests: TestCase {
     }
 
     func put(id: Int) throws {
-        let req = Request.makeTest(method: .put, port: port, path: "/posts/\(id)")
+        let req = Request.makeTest(method: .put)
         req.json = try JSON(node: ["content": updatedMessage])
+        let post = try Post.find(id)!
+        let res = try controller.replace(request: req, post: post).makeResponse()
 
-        let res = try drop.testResponse(to: req)
         let json = res.json
         XCTAssertNotNil(json)
         XCTAssertNotNil(json?["content"])
@@ -110,14 +107,25 @@ class PostControllerTests: TestCase {
     }
 
     func deleteOne(id: Int) throws {
-        let req = Request.makeTest(method: .delete, port: port, path: "/posts/\(id)")
-        try drop.testResponse(to: req)
-            .assertStatus(is: .ok)
+        let req = Request.makeTest(method: .delete)
+        
+        let post = try Post.find(id)!
+        _ = try controller.delete(request: req, post: post)
     }
 
     func deleteAll() throws {
-        let req = Request.makeTest(method: .delete, port: port, path: "/posts")
-        try drop.testResponse(to: req)
-            .assertStatus(is: .ok)
+        let req = Request.makeTest(method: .delete)
+        _ = try controller.clear(request: req)
     }
+}
+
+// MARK: Manifest
+
+extension PostControllerTests {
+    /// This is a requirement for XCTest on Linux
+    /// to function properly.
+    /// See ./Tests/LinuxMain.swift for examples
+    static let allTests = [
+        ("testPostRoutes", testPostRoutes),
+    ]
 }

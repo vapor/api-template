@@ -81,3 +81,9 @@ extension Request {
         return try Post(json: json)
     }
 }
+
+/// Since PostController doesn't require anything to 
+/// be initialized we can conform it to EmptyInitializable.
+///
+/// This will allow it to be passed by type.
+extension PostController: EmptyInitializable { }
