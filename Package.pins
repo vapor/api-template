@@ -29,7 +29,7 @@
       "package": "Core",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/core.git",
-      "version": "2.0.0-beta.4"
+      "version": "2.0.0-beta.5"
     },
     {
       "package": "Crypto",
@@ -125,7 +125,7 @@
       "package": "Vapor",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/vapor.git",
-      "version": "2.0.0-beta.19"
+      "version": "2.0.0-beta.21"
     }
   ],
   "version": 1
