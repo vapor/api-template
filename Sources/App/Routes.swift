@@ -7,6 +7,10 @@ final class Routes: RouteCollection {
             try json.set("hello", "world")
             return json
         }
+
+        builder.get("plaintext") { req in
+            return "Hello, world!"
+        }
         
         // response to requests to /info domain
         // with a description of the request
