@@ -64,8 +64,8 @@ final class PostController: ResourceRepresentable {
             index: index,
             store: create,
             show: show,
+            update: update,
             replace: replace,
-            modify: update,
             destroy: delete,
             clear: clear
         )

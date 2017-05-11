@@ -22,7 +22,7 @@ class RouteTests: TestCase {
         try drop
             .testResponse(to: .get, at: "info")
             .assertStatus(is: .ok)
-            .assertBody(contains: "Host: 0.0.0.0")
+            .assertBody(contains: "0.0.0.0")
     }
 }
 
