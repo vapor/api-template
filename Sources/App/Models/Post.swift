@@ -1,45 +1,76 @@
 import Vapor
-import Fluent
-import Foundation
+import FluentProvider
+import HTTP
 
 final class Post: Model {
-    var id: Node?
-    var content: String
+    let storage = Storage()
     
+    /// The content of the post
+    var content: String
+
+    /// Creates a new Post
     init(content: String) {
-        self.id = UUID().uuidString.makeNode()
         self.content = content
     }
 
-    init(node: Node, in context: Context) throws {
-        id = try node.extract("id")
-        content = try node.extract("content")
+    // MARK: Fluent Serialization
+
+    /// Initializes the Post from the
+    /// database row
+    init(row: Row) throws {
+        content = try row.get("content")
     }
 
-    func makeNode(context: Context) throws -> Node {
-        return try Node(node: [
-            "id": id,
-            "content": content
-        ])
+    // Serializes the Post to the database
+    func makeRow() throws -> Row {
+        var row = Row()
+        try row.set("content", content)
+        return row
     }
 }
 
-extension Post {
-    /**
-        This will automatically fetch from database, using example here to load
-        automatically for example. Remove on real models.
-    */
-    public convenience init?(from string: String) throws {
-        self.init(content: string)
-    }
-}
+// MARK: Fluent Preparation
 
 extension Post: Preparation {
+    /// Prepares a table/collection in the database
+    /// for storing Posts
     static func prepare(_ database: Database) throws {
-        //
+        try database.create(self) { builder in
+            builder.id()
+            builder.string("content")
+        }
     }
 
+    /// Undoes what was done in `prepare`
     static func revert(_ database: Database) throws {
-        //
+        try database.delete(self)
     }
 }
+
+// MARK: JSON
+
+// How the model converts from / to JSON.
+// For example when:
+//     - Creating a new Post (POST /posts)
+//     - Fetching a post (GET /posts, GET /posts/:id)
+//
+extension Post: JSONConvertible {
+    convenience init(json: JSON) throws {
+        try self.init(
+            content: json.get("content")
+        )
+    }
+    
+    func makeJSON() throws -> JSON {
+        var json = JSON()
+        try json.set("id", id)
+        try json.set("content", content)
+        return json
+    }
+}
+
+// MARK: HTTP
+
+// This allows Post models to be returned
+// directly in route closures
+extension Post: ResponseRepresentable { }
