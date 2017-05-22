@@ -20,6 +20,6 @@ extension Config {
     private func setupPreparations() throws {
         preparations += [
             Post.self
-        ]
+        ] as [Preparation.Type]
     }
 }
