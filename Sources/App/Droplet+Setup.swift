@@ -5,7 +5,7 @@ extension Droplet {
     /// so that we can abstract away the 
     /// droplet's setup without putting it
     /// in our executable.
-    /// This is done to help fascilitate 
+    /// This is done to help facilitate 
     /// testing.
     public func setup() throws {
         try collection(Routes.self)
