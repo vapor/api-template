@@ -18,7 +18,7 @@ final class Routes: RouteCollection {
             return req.description
         }
 
-       builder.get("*") { req in return req.description }
+       builder.get("description") { req in return req.description }
         
         try builder.resource("posts", PostController.self)
     }
