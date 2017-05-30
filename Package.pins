@@ -107,13 +107,13 @@
       "package": "TLS",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/tls.git",
-      "version": "2.0.0"
+      "version": "2.0.1"
     },
     {
       "package": "Vapor",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/vapor.git",
-      "version": "2.0.2"
+      "version": "2.0.3"
     }
   ],
   "version": 1
