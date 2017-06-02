@@ -14,12 +14,6 @@
       "version": "1.0.0"
     },
     {
-      "package": "CTLS",
-      "reason": null,
-      "repositoryURL": "https://github.com/vapor/ctls.git",
-      "version": "1.0.0"
-    },
-    {
       "package": "Console",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/console.git",
@@ -36,6 +30,12 @@
       "reason": null,
       "repositoryURL": "https://github.com/vapor/crypto.git",
       "version": "2.0.0"
+    },
+    {
+      "package": "CTLS",
+      "reason": null,
+      "repositoryURL": "https://github.com/vapor/ctls.git",
+      "version": "1.0.0"
     },
     {
       "package": "Debugging",
@@ -92,28 +92,28 @@
       "version": "2.0.0"
     },
     {
-      "package": "SQLite",
-      "reason": null,
-      "repositoryURL": "https://github.com/vapor/sqlite.git",
-      "version": "2.0.0"
-    },
-    {
       "package": "Sockets",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/sockets.git",
       "version": "2.0.1"
     },
     {
+      "package": "SQLite",
+      "reason": null,
+      "repositoryURL": "https://github.com/vapor/sqlite.git",
+      "version": "2.0.0"
+    },
+    {
       "package": "TLS",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/tls.git",
-      "version": "2.0.1"
+      "version": "2.0.3"
     },
     {
       "package": "Vapor",
       "reason": null,
       "repositoryURL": "https://github.com/vapor/vapor.git",
-      "version": "2.0.4"
+      "version": "2.0.5"
     }
   ],
   "version": 1
