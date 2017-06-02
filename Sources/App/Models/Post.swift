@@ -74,3 +74,21 @@ extension Post: JSONConvertible {
 // This allows Post models to be returned
 // directly in route closures
 extension Post: ResponseRepresentable { }
+
+// MARK: Update
+
+// This allows the Post model to be updated
+// dynamically by the request.
+extension Post: Updateable {
+    // Updateable keys are called when `post.update(for: req)` is called.
+    // Add as many updateable keys as you like here.
+    public static var updateableKeys: [UpdateableKey<Post>] {
+        return [
+            // If the request contains a String at key "content"
+            // the setter callback will be called.
+            UpdateableKey("content", String.self) { post, content in
+                post.content = content
+            }
+        ]
+    }
+}

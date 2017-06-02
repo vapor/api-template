@@ -59,7 +59,7 @@ class PostControllerTests: TestCase {
     func fetchOne(id: Int) throws {
         let req = Request.makeTest(method: .get)
         let post = try Post.find(id)!
-        let res = try controller.show(request: req, post: post).makeResponse()
+        let res = try controller.show(req: req, post: post).makeResponse()
 
         let json = res.json
         XCTAssertNotNil(json)
@@ -71,7 +71,7 @@ class PostControllerTests: TestCase {
 
     func fetchAll(expectCount count: Int) throws {
         let req = Request.makeTest(method: .get)
-        let res = try controller.index(request: req).makeResponse()
+        let res = try controller.index(req: req).makeResponse()
 
         let json = res.json
         XCTAssertNotNil(json?.array)
@@ -82,7 +82,7 @@ class PostControllerTests: TestCase {
         let req = Request.makeTest(method: .patch)
         req.json = try JSON(node: ["content": updatedMessage])
         let post = try Post.find(id)!
-        let res = try controller.update(request: req, post: post).makeResponse()
+        let res = try controller.update(req: req, post: post).makeResponse()
         
         let json = res.json
         XCTAssertNotNil(json)
@@ -96,7 +96,7 @@ class PostControllerTests: TestCase {
         let req = Request.makeTest(method: .put)
         req.json = try JSON(node: ["content": updatedMessage])
         let post = try Post.find(id)!
-        let res = try controller.replace(request: req, post: post).makeResponse()
+        let res = try controller.replace(req: req, post: post).makeResponse()
 
         let json = res.json
         XCTAssertNotNil(json)
@@ -110,12 +110,12 @@ class PostControllerTests: TestCase {
         let req = Request.makeTest(method: .delete)
         
         let post = try Post.find(id)!
-        _ = try controller.delete(request: req, post: post)
+        _ = try controller.delete(req: req, post: post)
     }
 
     func deleteAll() throws {
         let req = Request.makeTest(method: .delete)
-        _ = try controller.clear(request: req)
+        _ = try controller.clear(req: req)
     }
 }
 
