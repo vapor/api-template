@@ -11,7 +11,8 @@
     "//": "`camelCase` option is also available.",
     "keyNamingConvention": "snake_case",
     
-    "//": "Name of the table Fluent uses to track migrations",
+    "//": "Name of the table Fluent uses to track migrations.",
+    "//": "If null, preparations will not be run.",
     "migrationEntityName": "fluent",
     
     "//": "Character used to join pivot tables, e.g., `user_pet`",
@@ -26,5 +27,8 @@
     "defaultPageKey": "page",
     
     "//": "Default page size if not otherwise specified on models",
-    "defaultPageSize": 10
+    "defaultPageSize": 10,
+
+    "//": "If true, all queries made to the database will be logged.",
+    "log": false
 }
