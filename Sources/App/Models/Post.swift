@@ -10,7 +10,8 @@ final class Post: Model {
     /// The content of the post
     var content: String
     
-    /// The column name for `content` in the database
+    /// The column names for `id` and `content` in the database
+    static let idKey = "id"
     static let contentKey = "content"
 
     /// Creates a new Post
@@ -23,13 +24,13 @@ final class Post: Model {
     /// Initializes the Post from the
     /// database row
     init(row: Row) throws {
-        content = try row.get(contentKey)
+        content = try row.get(Post.contentKey)
     }
 
     // Serializes the Post to the database
     func makeRow() throws -> Row {
         var row = Row()
-        try row.set(contentKey, content)
+        try row.set(Post.contentKey, content)
         return row
     }
 }
@@ -42,7 +43,7 @@ extension Post: Preparation {
     static func prepare(_ database: Database) throws {
         try database.create(self) { builder in
             builder.id()
-            builder.string(contentKey)
+            builder.string(Post.contentKey)
         }
     }
 
@@ -62,14 +63,14 @@ extension Post: Preparation {
 extension Post: JSONConvertible {
     convenience init(json: JSON) throws {
         try self.init(
-            content: json.get(contentKey)
+            content: json.get(Post.contentKey)
         )
     }
     
     func makeJSON() throws -> JSON {
         var json = JSON()
-        try json.set("id", id)
-        try json.set(contentKey, content)
+        try json.set(Post.idKey, id)
+        try json.set(Post.contentKey, content)
         return json
     }
 }
@@ -91,7 +92,7 @@ extension Post: Updateable {
         return [
             // If the request contains a String at key "content"
             // the setter callback will be called.
-            UpdateableKey(contentKey, String.self) { post, content in
+            UpdateableKey(Post.contentKey, String.self) { post, content in
                 post.content = content
             }
         ]
