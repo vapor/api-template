@@ -12,8 +12,8 @@ final class PostController: ResourceRepresentable {
 
     /// When consumers call 'POST' on '/posts' with valid JSON
     /// create and save the post
-    func create(request: Request) throws -> ResponseRepresentable {
-        let post = try request.post()
+    func create(req: Request) throws -> ResponseRepresentable {
+        let post = try req.post()
         try post.save()
         return post
     }
