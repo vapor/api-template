@@ -6,13 +6,13 @@ import HTTP
 final class PostController: ResourceRepresentable {
     /// When users call 'GET' on '/posts'
     /// it should return an index of all available posts
-    func index(req: Request) throws -> ResponseRepresentable {
+    func index(_ req: Request) throws -> ResponseRepresentable {
         return try Post.all().makeJSON()
     }
 
     /// When consumers call 'POST' on '/posts' with valid JSON
     /// create and save the post
-    func create(req: Request) throws -> ResponseRepresentable {
+    func create(_ req: Request) throws -> ResponseRepresentable {
         let post = try req.post()
         try post.save()
         return post
@@ -20,27 +20,27 @@ final class PostController: ResourceRepresentable {
 
     /// When the consumer calls 'GET' on a specific resource, ie:
     /// '/posts/13rd88' we should show that specific post
-    func show(req: Request, post: Post) throws -> ResponseRepresentable {
+    func show(_ req: Request, post: Post) throws -> ResponseRepresentable {
         return post
     }
 
     /// When the consumer calls 'DELETE' on a specific resource, ie:
     /// 'posts/l2jd9' we should remove that resource from the database
-    func delete(req: Request, post: Post) throws -> ResponseRepresentable {
+    func delete(_ req: Request, post: Post) throws -> ResponseRepresentable {
         try post.delete()
         return Response(status: .ok)
     }
 
     /// When the consumer calls 'DELETE' on the entire table, ie:
     /// '/posts' we should remove the entire table
-    func clear(req: Request) throws -> ResponseRepresentable {
+    func clear(_ req: Request) throws -> ResponseRepresentable {
         try Post.makeQuery().delete()
         return Response(status: .ok)
     }
 
     /// When the user calls 'PATCH' on a specific resource, we should
     /// update that resource to the new values.
-    func update(req: Request, post: Post) throws -> ResponseRepresentable {
+    func update(_ req: Request, post: Post) throws -> ResponseRepresentable {
         // See `extension Post: Updateable`
         try post.update(for: req)
 
@@ -52,7 +52,7 @@ final class PostController: ResourceRepresentable {
     /// When a user calls 'PUT' on a specific resource, we should replace any
     /// values that do not exist in the request with null.
     /// This is equivalent to creating a new Post with the same ID.
-    func replace(req: Request, post: Post) throws -> ResponseRepresentable {
+    func replace(_ req: Request, post: Post) throws -> ResponseRepresentable {
         // First attempt to create a new Post from the supplied JSON.
         // If any required fields are missing, this request will be denied.
         let new = try req.post()
