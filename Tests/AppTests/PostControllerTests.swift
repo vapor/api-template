@@ -45,8 +45,10 @@ class PostControllerTests: TestCase {
         try deleteOne(id: idTwo)
         try fetchAll(expectCount: 0)
 
-        let newIds = try (1...5).map { _ in try storeNewPost()?.id?.int ?? 1 }
-        try fetchAll(expectCount: newIds.count)
+        for _ in 1...5 {
+            _ = try storeNewPost()
+        }
+        try fetchAll(expectCount: 5)
         try deleteAll()
         try fetchAll(expectCount: 0)
     }
