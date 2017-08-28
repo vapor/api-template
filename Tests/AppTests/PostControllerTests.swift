@@ -22,13 +22,21 @@ class PostControllerTests: TestCase {
     let controller = PostController()
     
     func testPostRoutes() throws {        
-        let idOne = try create() ?? -1
+        guard let postOne = try storeNewPost(), let idOne = postOne.id?.int else {
+            XCTFail()
+            return
+        }
+
         try fetchOne(id: idOne)
         try fetchAll(expectCount: 1)
         try patch(id: idOne)
         try put(id: idOne)
 
-        let idTwo = try create() ?? -1
+        guard let postTwo = try storeNewPost(), let idTwo = postTwo.id?.int else {
+            XCTFail()
+            return
+        }
+
         try fetchAll(expectCount: 2)
 
         try deleteOne(id: idOne)
@@ -37,23 +45,26 @@ class PostControllerTests: TestCase {
         try deleteOne(id: idTwo)
         try fetchAll(expectCount: 0)
 
-        let newIds = try (1...5).map { _ in try create() ?? 1 }
-        try fetchAll(expectCount: newIds.count)
+        for _ in 1...5 {
+            _ = try storeNewPost()
+        }
+        try fetchAll(expectCount: 5)
         try deleteAll()
         try fetchAll(expectCount: 0)
     }
 
-    func create() throws -> Int? {
+    func storeNewPost() throws -> Post? {
         let req = Request.makeTest(method: .post)
         req.json = try JSON(node: ["content": initialMessage])
-        let res = try controller.create(req).makeResponse()
+        let res = try controller.store(req).makeResponse()
         
         let json = res.json
         XCTAssertNotNil(json)
+        let newId: Int? = try json?.get("id")
+        XCTAssertNotNil(newId)
         XCTAssertNotNil(json?["content"])
-        XCTAssertNotNil(json?["id"])
         XCTAssertEqual(json?["content"], req.json?["content"])
-        return try json?.get("id")
+        return try Post.find(newId)
     }
 
     func fetchOne(id: Int) throws {
