@@ -46,7 +46,7 @@ class PostControllerTests: TestCase {
     func create() throws -> Int? {
         let req = Request.makeTest(method: .post)
         req.json = try JSON(node: ["content": initialMessage])
-        let res = try controller.create(req).makeResponse()
+        let res = try controller.store(req).makeResponse()
         
         let json = res.json
         XCTAssertNotNil(json)
