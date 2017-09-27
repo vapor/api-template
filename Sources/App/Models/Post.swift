@@ -11,8 +11,10 @@ final class Post: Model {
     var content: String
     
     /// The column names for `id` and `content` in the database
-    static let idKey = "id"
-    static let contentKey = "content"
+    struct Keys {
+        static let id = "id"
+        static let content = "content"
+    }
 
     /// Creates a new Post
     init(content: String) {
@@ -24,13 +26,13 @@ final class Post: Model {
     /// Initializes the Post from the
     /// database row
     init(row: Row) throws {
-        content = try row.get(Post.contentKey)
+        content = try row.get(Post.Keys.content)
     }
 
     // Serializes the Post to the database
     func makeRow() throws -> Row {
         var row = Row()
-        try row.set(Post.contentKey, content)
+        try row.set(Post.Keys.content, content)
         return row
     }
 }
@@ -43,7 +45,7 @@ extension Post: Preparation {
     static func prepare(_ database: Database) throws {
         try database.create(self) { builder in
             builder.id()
-            builder.string(Post.contentKey)
+            builder.string(Post.Keys.content)
         }
     }
 
@@ -62,15 +64,15 @@ extension Post: Preparation {
 //
 extension Post: JSONConvertible {
     convenience init(json: JSON) throws {
-        try self.init(
-            content: json.get(Post.contentKey)
+        self.init(
+            content: try json.get(Post.Keys.content)
         )
     }
     
     func makeJSON() throws -> JSON {
         var json = JSON()
         try json.set(Post.idKey, id)
-        try json.set(Post.contentKey, content)
+        try json.set(Post.Keys.content, content)
         return json
     }
 }
@@ -92,7 +94,7 @@ extension Post: Updateable {
         return [
             // If the request contains a String at key "content"
             // the setter callback will be called.
-            UpdateableKey(Post.contentKey, String.self) { post, content in
+            UpdateableKey(Post.Keys.content, String.self) { post, content in
                 post.content = content
             }
         ]
