@@ -71,7 +71,7 @@ extension Post: JSONConvertible {
     
     func makeJSON() throws -> JSON {
         var json = JSON()
-        try json.set(Post.idKey, id)
+        try json.set(Post.Keys.id, id)
         try json.set(Post.Keys.content, content)
         return json
     }
