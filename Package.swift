@@ -12,6 +12,7 @@ let package = Package(
             name: "App",
             dependencies: ["Routing", "Service", "Vapor"]
         ),
-        .target(name: "Run", dependencies: ["App"])
+        .target(name: "Run", dependencies: ["App"]),
+        .testTarget(name: "AppTests", dependencies: ["App"]),
     ]
 )
