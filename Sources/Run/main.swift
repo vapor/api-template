@@ -1,25 +1,19 @@
 import App
+import Service
+import Vapor
 
-/// We have isolated all of our App's logic into
-/// the App module because it makes our app
-/// more testable.
-///
-/// In general, the executable portion of our App
-/// shouldn't include much more code than is presented
-/// here.
-///
-/// We simply initialize our Droplet, optionally
-/// passing in values if necessary
-/// Then, we pass it to our App's setup function
-/// this should setup all the routes and special
-/// features of our app
-///
-/// .run() runs the Droplet's commands, 
-/// if no command is given, it will default to "serve"
-let config = try Config()
-try config.setup()
+let config = Config.default()
+let env = Environment.detect()
+let services = Services.default()
 
-let drop = try Droplet(config)
-try drop.setup()
+try App.configure(config, env, services)
 
-try drop.run()
+let app = try Application(
+    config: config,
+    environment: env,
+    services: services
+)
+
+try App.boot(app)
+
+try app.run()
