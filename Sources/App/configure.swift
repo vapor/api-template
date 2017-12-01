@@ -1,5 +1,3 @@
-import Service
-import Routing
 import Vapor
 
 /// Called before your application initializes.
@@ -11,4 +9,5 @@ public func configure(
     _ services: inout Services
 ) throws {
     // configure your application here
+
 }
