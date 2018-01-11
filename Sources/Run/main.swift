@@ -3,11 +3,11 @@ import Service
 import Vapor
 import COperatingSystem // Remove this when Xcode bug is fixed
 
-var config = Config.default()
-var env = Environment.detect()
-var services = Services.default()
-
 do {
+    var config = Config.default()
+    var env = try Environment.detect()
+    var services = Services.default()
+
     try App.configure(&config, &env, &services)
 
     let app = try Application(
