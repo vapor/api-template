@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/vapor/async.git",
         "state": {
           "branch": "beta",
-          "revision": "3dbcc352b38eb6d42910d7d68a24fcd48b1bd73f",
+          "revision": "f5d24639c7e8ee1e3c5717c5e7185b861e97944f",
           "version": null
         }
       },
@@ -56,20 +56,20 @@
         }
       },
       {
-        "package": "Leaf",
-        "repositoryURL": "https://github.com/vapor/leaf.git",
-        "state": {
-          "branch": "beta",
-          "revision": "c1abfd07af91d5142e1dcfbc32afb51d5b53e632",
-          "version": null
-        }
-      },
-      {
         "package": "Service",
         "repositoryURL": "https://github.com/vapor/service.git",
         "state": {
           "branch": "beta",
-          "revision": "6ab1b66386705f06417a663da447b5dc6a7cb944",
+          "revision": "fbd8a84d1e3c546662654222e3cdb06809814eb9",
+          "version": null
+        }
+      },
+      {
+        "package": "TemplateKit",
+        "repositoryURL": "https://github.com/vapor/template-kit.git",
+        "state": {
+          "branch": "beta",
+          "revision": "fbb2b8c90f039a37a5fd74be67b97b8838d3021e",
           "version": null
         }
       },
@@ -78,7 +78,7 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": "beta",
-          "revision": "ffabd30abfe3a7c1e1506183f1a86f4b4e49b913",
+          "revision": "f2d9c1a53080fea262cd812368d2af703da36161",
           "version": null
         }
       }
