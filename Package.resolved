@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/vapor/async.git",
         "state": {
           "branch": "beta",
-          "revision": "f5d24639c7e8ee1e3c5717c5e7185b861e97944f",
+          "revision": "fa7aa97c0476fe6da859e5fea35b3f027fcfc4ff",
           "version": null
         }
       },
@@ -24,7 +24,7 @@
         "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
           "branch": "beta",
-          "revision": "984e09d9f2109a70bd8c48a9057dc00973ec8c8a",
+          "revision": "a848fb34323fa194ba9255df6899dcf9291b00ff",
           "version": null
         }
       },
@@ -42,7 +42,7 @@
         "repositoryURL": "https://github.com/vapor/database-kit.git",
         "state": {
           "branch": "beta",
-          "revision": "c1dd27e0dd2fe01b5dd4389e8c0f59d31c9ca1f0",
+          "revision": "4e1d330de2a21eeeb7492f8a109fefc0201ac465",
           "version": null
         }
       },
@@ -51,7 +51,7 @@
         "repositoryURL": "https://github.com/vapor/engine.git",
         "state": {
           "branch": "beta",
-          "revision": "db7460b7d27af4796c07f66a2272b8091965d99c",
+          "revision": "10f9fedc9a1fdeccc0e4b6e186a598748cba74a3",
           "version": null
         }
       },
@@ -60,7 +60,7 @@
         "repositoryURL": "https://github.com/vapor/service.git",
         "state": {
           "branch": "beta",
-          "revision": "807ac871f46b1fac3621b947cace00a249f32ddc",
+          "revision": "ae18f072da312710506802e557dc552d3c68bd34",
           "version": null
         }
       },
@@ -69,7 +69,7 @@
         "repositoryURL": "https://github.com/vapor/template-kit.git",
         "state": {
           "branch": "beta",
-          "revision": "fbb2b8c90f039a37a5fd74be67b97b8838d3021e",
+          "revision": "56990033c17006e7d1ae9c78abc3da1654d79fe6",
           "version": null
         }
       },
@@ -78,7 +78,7 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": "beta",
-          "revision": "fd1ba29c6f70d293cb88808c0f5ef5ec672095f0",
+          "revision": "24e66402cd89ab039ff95f48dec87406e7865395",
           "version": null
         }
       }
