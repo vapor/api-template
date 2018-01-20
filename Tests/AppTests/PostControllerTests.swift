@@ -12,13 +12,8 @@ import Sockets
 class PostControllerTests: TestCase {
     let initialMessage = "I'm a post"
     let updatedMessage = "I have been updated \(Date())"
-
-    /// For these tests, we won't be spinning up a live
-    /// server, and instead we'll be passing our constructed
-    /// requests programmatically
-    /// this is usually an effective way to test your 
-    /// application in a convenient and safe manner
-    /// See RouteTests for an example of a live server test
+    
+    let drop = try! Droplet.testable()
     let controller = PostController()
     
     func testPostRoutes() throws {        
