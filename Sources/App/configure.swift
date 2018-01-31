@@ -1,3 +1,4 @@
+import FluentSQLite
 import Vapor
 
 /// Called before your application initializes.
@@ -8,10 +9,23 @@ public func configure(
     _ env: inout Environment,
     _ services: inout Services
 ) throws {
-    // register routes to the router
+    // Register providers first
+    try services.register(FluentSQLiteProvider())
+
+    // Register routes to the router
     let router = EngineRouter.default()
     try routes(router)
     services.register(router, as: Router.self)
 
-    // configure your application here
+    // Configure a SQLite database
+    var databases = DatabaseConfig()
+    try databases.add(database: SQLiteDatabase(storage: .memory), as: .sqlite)
+    services.register(databases)
+
+    // Configure migrations
+    var migrations = MigrationConfig()
+    migrations.add(model: Todo.self, database: .sqlite)
+    services.register(migrations)
+
+    // Configure the rest of your application here
 }
