@@ -2,7 +2,7 @@ import FluentSQLite
 import Vapor
 
 /// A single entry of a Todo list.
-final class Todo: SQLiteModel {
+final class Todo: AppModel {
     /// See `Model.idKey`
     static let idKey = \Todo.id
 

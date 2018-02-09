@@ -1,6 +1,9 @@
 import FluentSQLite
 import Vapor
 
+/// Helper protocol to make easier switch fluent drivers
+protocol AppModel: SQLiteModel {}
+
 /// Called before your application initializes.
 ///
 /// [Learn More →](https://docs.vapor.codes/3.0/getting-started/structure/#configureswift)
