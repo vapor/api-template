@@ -3,8 +3,11 @@ import Vapor
 
 /// A single entry of a Todo list.
 final class Todo: SQLiteModel {
+    /// See `Model.ID`
+    typealias ID = Int
+
     /// See `Model.idKey`
-    static let idKey = \Todo.id
+    static let idKey: IDKey = \Todo.id
 
     /// The unique identifier for this `Todo`.
     var id: Int?
