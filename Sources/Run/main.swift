@@ -21,4 +21,5 @@ do {
     try app.run()
 } catch {
     print(error)
+    exit(1)
 }
