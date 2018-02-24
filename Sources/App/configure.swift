@@ -17,6 +17,13 @@ public func configure(
     try routes(router)
     services.register(router, as: Router.self)
 
+    // Register middleware
+    var middlewares = MiddlewareConfig() // Create _empty_ middleware config
+    // middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
+    middlewares.use(DateMiddleware.self) // Adds `Date` header to responses
+    middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
+    services.register(middlewares)
+
     // Configure a SQLite database
     var databases = DatabaseConfig()
     try databases.add(database: SQLiteDatabase(storage: .memory), as: .sqlite)
