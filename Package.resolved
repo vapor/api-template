@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/vapor/async.git",
         "state": {
           "branch": null,
-          "revision": "887ddb41af15a39c3e47b9e0b207aa8efd8bafc3",
-          "version": "1.0.0-rc.1"
+          "revision": "76ed7841b32dcc47168e8d9040ba03c024224d0c",
+          "version": "1.0.0-rc.1.1"
         }
       },
       {
