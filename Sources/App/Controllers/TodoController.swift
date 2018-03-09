@@ -16,7 +16,7 @@ final class TodoController {
 
     /// Deletes a parameterized `Todo`.
     func delete(_ req: Request) throws -> Future<HTTPStatus> {
-        return try req.parameter(Todo.self).flatMap(to: Todo.self) { todo in
+        return try req.parameter(Todo.self).flatMap(to: Void.self) { todo in
             return todo.delete(on: req)
         }.transform(to: .ok)
     }
