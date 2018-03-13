@@ -8,11 +8,11 @@ let package = Package(
         .package(url: "https://github.com/vapor/vapor.git", .branch("nio")),
 
         // 🔵 Swift ORM (queries, models, relations, etc) built on SQLite 3.
-        .package(url: "https://github.com/vapor/fluent-sqlite.git", .branch("nio")),
+        .package(url: "https://github.com/vapor/fluent-sqlite.git", .branch("nio"))
     ],
     targets: [
         .target(name: "App", dependencies: ["FluentSQLite", "Vapor"]),
         .target(name: "Run", dependencies: ["App"]),
-        .testTarget(name: "AppTests", dependencies: ["App"]),
+        .testTarget(name: "AppTests", dependencies: ["App"])
     ]
 )
