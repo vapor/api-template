@@ -24,3 +24,32 @@ extension Todo: Content { }
 
 /// Allows `Todo` to be used as a dynamic parameter in route definitions.
 extension Todo: Parameter { }
+
+
+/// A simple user.
+final class User<D>: Model where D: Database {
+    /// See `Model.Database`
+    typealias Database = D
+
+    /// See `Model.ID`
+    typealias ID = Int
+
+    /// See `Model.idKey`
+    static var idKey: IDKey { return \.id }
+
+    /// The unique identifier for this user.
+    var id: Int?
+
+    /// The user's full name.
+    var name: String
+
+    /// The user's current age in years.
+    var age: Int
+
+    /// Creates a new user.
+    init(id: Int? = nil, name: String, age: Int) {
+        self.id = id
+        self.name = name
+        self.age = age
+    }
+}

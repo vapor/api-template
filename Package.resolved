@@ -5,90 +5,90 @@
         "package": "Console",
         "repositoryURL": "https://github.com/vapor/console.git",
         "state": {
-          "branch": "nio",
-          "revision": "9fc7ee2bd766b8f0141195eff9e25078022c6c40",
-          "version": null
+          "branch": null,
+          "revision": "7ae6b7f2d2b2fc4f1e2ac3df51c8009d3e65aa11",
+          "version": "3.0.0-rc.2"
         }
       },
       {
         "package": "Core",
         "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
-          "branch": "nio",
-          "revision": "90d00a878031d1b48b7336b9aa87c92e2787be37",
-          "version": null
+          "branch": null,
+          "revision": "60e1c2558f16845f2fe40bfb2c36b19b3f3a8aff",
+          "version": "3.0.0-rc.2"
         }
       },
       {
         "package": "Crypto",
         "repositoryURL": "https://github.com/vapor/crypto.git",
         "state": {
-          "branch": "nio",
-          "revision": "d23c37472d778179eb0ea370d4bf4bd8e995b5ef",
-          "version": null
+          "branch": null,
+          "revision": "5ea23edc6d3122655daf71756bc769c987a20b29",
+          "version": "3.0.0-rc.2"
         }
       },
       {
         "package": "DatabaseKit",
         "repositoryURL": "https://github.com/vapor/database-kit.git",
         "state": {
-          "branch": "nio",
-          "revision": "0108c787fe576ad25da6fc8821bc66468ccd21fa",
-          "version": null
+          "branch": null,
+          "revision": "965d4c8ce376819456e0bc1a6c8f388b4d6555cd",
+          "version": "1.0.0-rc.2"
         }
       },
       {
         "package": "Engine",
         "repositoryURL": "https://github.com/vapor/engine.git",
         "state": {
-          "branch": "nio",
-          "revision": "a54ef9c9d61dbcad8e6296bcd2afc7a41b950f71",
-          "version": null
+          "branch": null,
+          "revision": "6a7ca70b6858a0ac8a5c48359c80a3c37f46b47e",
+          "version": "3.0.0-rc.2"
         }
       },
       {
         "package": "Fluent",
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
-          "branch": "nio",
-          "revision": "381c5f25bd9744d47bf573269489017b526297c9",
-          "version": null
+          "branch": null,
+          "revision": "9e684c00fc2bd1fd1adaaad5f6ae29beac7b0364",
+          "version": "3.0.0-rc.2"
         }
       },
       {
         "package": "FluentSQLite",
         "repositoryURL": "https://github.com/vapor/fluent-sqlite.git",
         "state": {
-          "branch": "nio",
-          "revision": "55c7651f88d07d1f14c02d61ee2a98d6fe77e2e8",
-          "version": null
+          "branch": null,
+          "revision": "218d7af5201ee769a5479fbae32a4a1ca4f25c8e",
+          "version": "3.0.0-rc.2"
         }
       },
       {
         "package": "Routing",
         "repositoryURL": "https://github.com/vapor/routing.git",
         "state": {
-          "branch": "nio",
-          "revision": "ab302896c51dabeecad2f1a297a943df321ae2b1",
-          "version": null
+          "branch": null,
+          "revision": "2fc1d4de22a54848b35ad17b3e7f7816f19ebf90",
+          "version": "3.0.0-rc.2"
         }
       },
       {
         "package": "Service",
         "repositoryURL": "https://github.com/vapor/service.git",
         "state": {
-          "branch": "nio",
-          "revision": "d51d6d00c77e1032ba6ae425f3330da9455852d8",
-          "version": null
+          "branch": null,
+          "revision": "8ade63fc255a184ec16a1c66562b837f2b5db83f",
+          "version": "1.0.0-rc.2"
         }
       },
       {
         "package": "SQLite",
         "repositoryURL": "https://github.com/vapor/sqlite.git",
         "state": {
-          "branch": "nio",
-          "revision": "637ba9bbeb254ca9a2808f78ec6997e8f8255d6b",
-          "version": null
+          "branch": null,
+          "revision": "1c2184c728abb8533b4fb922ffcf9158b08c9614",
+          "version": "3.0.0-rc.2"
         }
       },
       {
@@ -96,8 +96,26 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "1fdee500e5712af7cd4dc0424f892b716a185f81",
-          "version": "1.1.0"
+          "revision": "320561f4371d32c74a12158d2e18f220703fe32c",
+          "version": "1.2.1"
+        }
+      },
+      {
+        "package": "swift-nio-ssl",
+        "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
+        "state": {
+          "branch": null,
+          "revision": "85a55f91bf80afa96889426962f0e0369fae9187",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "swift-nio-ssl-support",
+        "repositoryURL": "https://github.com/apple/swift-nio-ssl-support.git",
+        "state": {
+          "branch": null,
+          "revision": "c02eec4e0e6d351cd092938cf44195a8e669f555",
+          "version": "1.0.0"
         }
       },
       {
@@ -113,27 +131,27 @@
         "package": "TemplateKit",
         "repositoryURL": "https://github.com/vapor/template-kit.git",
         "state": {
-          "branch": "nio",
-          "revision": "e53e7abad486e6cc38877ecd35b7177ab3a19e12",
-          "version": null
+          "branch": null,
+          "revision": "3a34d431685055738b0bd49cef459a25c83d2f8d",
+          "version": "1.0.0-rc.2"
         }
       },
       {
         "package": "Validation",
         "repositoryURL": "https://github.com/vapor/validation.git",
         "state": {
-          "branch": "nio",
-          "revision": "9c29d7571501233d74464e996f2c81f3c5ea0b88",
-          "version": null
+          "branch": null,
+          "revision": "361140562d87385df49fdb36e96841c0a92d59ae",
+          "version": "2.0.0-rc.2"
         }
       },
       {
         "package": "Vapor",
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
-          "branch": "nio",
-          "revision": "631eb08134a2b16096ae67d8766d77ee80e9b963",
-          "version": null
+          "branch": null,
+          "revision": "5f757a9a47c494af030d1ab7f82911e140682f9d",
+          "version": "3.0.0-rc.2"
         }
       }
     ]

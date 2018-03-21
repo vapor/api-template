@@ -24,6 +24,18 @@ public func configure(
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
 
+
+    let sqlite: SQLiteDatabase
+    if env.isRelease {
+        /// Create file-based SQLite db using $SQLITE_PATH from process env
+        sqlite = try SQLiteDatabase(storage: .file(path: Environment.get("SQLITE_PATH")!))
+    } else {
+        /// Create an in-memory SQLite database
+        sqlite = try SQLiteDatabase(storage: .memory)
+    }
+    services.register(sqlite)
+
+
     // Configure a SQLite database
     var databases = DatabaseConfig()
     try databases.add(database: SQLiteDatabase(storage: .memory), as: .sqlite)
@@ -34,5 +46,4 @@ public func configure(
     migrations.add(model: Todo.self, database: .sqlite)
     services.register(migrations)
 
-    // Configure the rest of your application here
 }
