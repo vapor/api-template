@@ -20,4 +20,23 @@ final class TodoController {
             return todo.delete(on: req)
         }.transform(to: .ok)
     }
+
+    /// Updates a decoded `Todo` to the database.
+    func update(_ req: Request) throws -> Future<Todo> {
+
+        return try req.content.decode(Todo.self).flatMap(to: Todo.self) { todo in
+                return todo.update(on: req)
+        }
+    }
+
+    /// Finds a parameterized `Todo`.
+    func find(_ req: Request) throws -> Future<Todo> {
+
+        do {
+            let todo = try req.parameter(Todo.self)
+            return todo
+        } catch {
+            throw Abort(.notFound)
+        }
+    }
 }
