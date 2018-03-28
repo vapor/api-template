@@ -3,6 +3,9 @@ import PackageDescription
 
 let package = Package(
     name: "VaporApp",
+    products: [
+        .library(name: "App", type: .dynamic, targets: ["App"]),
+    ],
     dependencies: [
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0-rc.2"),
