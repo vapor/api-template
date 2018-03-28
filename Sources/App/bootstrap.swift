@@ -3,7 +3,7 @@ import Vapor
 import Foundation
 
 public func bootstrap() throws -> Application {
-    var config = Config.default()
+	var config = Config.default()
 	var env = try Environment.detect()
 	var services = Services.default()
 
