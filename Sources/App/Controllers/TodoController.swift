@@ -23,7 +23,6 @@ final class TodoController {
 
     /// Updates a decoded `Todo` to the database.
     func update(_ req: Request) throws -> Future<Todo> {
-
         return try req.content.decode(Todo.self).flatMap(to: Todo.self) { todo in
                 return todo.update(on: req)
         }
@@ -31,12 +30,6 @@ final class TodoController {
 
     /// Finds a parameterized `Todo`.
     func find(_ req: Request) throws -> Future<Todo> {
-
-        do {
-            let todo = try req.parameter(Todo.self)
-            return todo
-        } catch {
-            throw Abort(.notFound)
-        }
+        return try req.parameter(Todo.self)
     }
 }
