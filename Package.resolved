@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
           "branch": null,
-          "revision": "6d3da8dc3f84cb082f0c587948edc038fcc13255",
-          "version": "3.0.0-rc.2.4"
+          "revision": "5f6e98e5849314ead2a3434f02521a220b273942",
+          "version": "3.0.0"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/vapor/database-kit.git",
         "state": {
           "branch": null,
-          "revision": "ce82abe73051388dcadbf34873b29a75df58cabc",
-          "version": "1.0.0-rc.2.1.1"
+          "revision": "9e77b5b95e3f1f141abdf75d6123f591971162cd",
+          "version": "1.0.0-rc.2.2.1"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/vapor/engine.git",
         "state": {
           "branch": null,
-          "revision": "cd6756a971caba5f14a861b446fe682a15d2ae28",
-          "version": "3.0.0-rc.2.1"
+          "revision": "4846ea9abeb04863f82f618ee8cb22650a82ae3c",
+          "version": "3.0.0-rc.2.1.1"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
           "branch": null,
-          "revision": "55c0a9698ef7aa2b08d5f3063ed7511eb223a402",
-          "version": "3.0.0-rc.2.3"
+          "revision": "eb63485dfd6fbd0773a25e1b94830fbcedaa8266",
+          "version": "3.0.0-rc.2.3.1"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/vapor/fluent-sqlite.git",
         "state": {
           "branch": null,
-          "revision": "218d7af5201ee769a5479fbae32a4a1ca4f25c8e",
-          "version": "3.0.0-rc.2"
+          "revision": "963f1ecd6fd219058d80cf251df355c3b13a0046",
+          "version": "3.0.0-rc.2.1"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/vapor/sqlite.git",
         "state": {
           "branch": null,
-          "revision": "f25c4b44c98c7de5e25e6ec32dbb1d9cb7a68d3d",
-          "version": "3.0.0-rc.2.1.1"
+          "revision": "2a55a4e727584114aa6993903af09df9c771ae05",
+          "version": "3.0.0-rc.2.2"
         }
       },
       {
