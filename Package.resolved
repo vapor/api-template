@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
           "branch": null,
-          "revision": "5f6e98e5849314ead2a3434f02521a220b273942",
-          "version": "3.0.0"
+          "revision": "225aff2b69049f2a4d9a4aae71d27ba7fb083032",
+          "version": "3.0.1"
         }
       },
       {
@@ -24,8 +24,8 @@
         "repositoryURL": "https://github.com/vapor/crypto.git",
         "state": {
           "branch": null,
-          "revision": "4c7acb4fbf1720682275f0ef543474c951d84a09",
-          "version": "3.0.0-rc.3"
+          "revision": "6a5d19f225583a1ca4327dd39fe2bd75ff222cd5",
+          "version": "3.0.0"
         }
       },
       {
@@ -150,8 +150,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "5e59691ef575597aa640da76ccb9fc5ee638f2c1",
-          "version": "3.0.0-rc.2.2.1"
+          "revision": "62a294559e926a29581dcb57e952d052ef6dcd22",
+          "version": "3.0.0-rc.2.2.2"
         }
       }
     ]
