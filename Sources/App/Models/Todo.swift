@@ -1,5 +1,6 @@
 import FluentSQLite
 import Vapor
+import Validation
 
 /// A single entry of a Todo list.
 final class Todo: SQLiteModel {
@@ -24,3 +25,22 @@ extension Todo: Content { }
 
 /// Allows `Todo` to be used as a dynamic parameter in route definitions.
 extension Todo: Parameter { }
+
+struct User: SQLiteUUIDModel {
+    var id: UUID?
+    var name: String
+    var age: Int
+    var email: String?
+}
+
+extension User: Content { }
+
+extension User: Validatable {
+    static func validations() throws -> Validations<User> {
+        var validations = Validations(User.self)
+        try validations.add(\.name, .alphanumeric && .count(3...))
+        try validations.add(\.age, .range(18...))
+        try validations.add(\.email, .email || .nil)
+        return validations
+    }
+}
