@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/vapor/console.git",
         "state": {
           "branch": null,
-          "revision": "038e30ec9004fb1915d14d964a3facc1ec5c80f4",
-          "version": "3.0.0"
+          "revision": "30f102dcf4d18862a14df9f65c4b91d117005926",
+          "version": "3.0.1"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
           "branch": null,
-          "revision": "eb63485dfd6fbd0773a25e1b94830fbcedaa8266",
-          "version": "3.0.0-rc.2.3.1"
+          "revision": "55f0e6f363050517e631113f17b57acbbfa55d04",
+          "version": "3.0.0-rc.2.3.3"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/vapor/http.git",
         "state": {
           "branch": null,
-          "revision": "2cb664097006e3fda625934079b51c90438947e1",
-          "version": "3.0.0"
+          "revision": "76474b2046af51ca70f6d94476c0a9126d1c3d5d",
+          "version": "3.0.1"
         }
       },
       {
@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/vapor/routing.git",
         "state": {
           "branch": null,
-          "revision": "2fc1d4de22a54848b35ad17b3e7f7816f19ebf90",
-          "version": "3.0.0-rc.2"
+          "revision": "0ace2ad08dc763f5e0989d1cd199aa3c2f90e747",
+          "version": "3.0.0"
         }
       },
       {
@@ -105,8 +105,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "3275ff7c9c791a628631c2c51b39fd94346b2492",
-          "version": "1.4.2"
+          "revision": "91ef938c60061784ba8734a73d61b7810494f9b3",
+          "version": "1.5.0"
         }
       },
       {
@@ -168,8 +168,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "95f94041400f54d0442d1dd5f12f91868d1a2a1c",
-          "version": "3.0.0-rc.2.6"
+          "revision": "aec1e789cf282e4ef06826baca83fd10c03662a2",
+          "version": "3.0.0-rc.2.7"
         }
       },
       {
