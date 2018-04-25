@@ -35,7 +35,7 @@ public func configure(
     }
 
     /// Register the configured SQLite database to the database config.
-    var databases = DatabaseConfig()
+    var databases = DatabasesConfig()
     databases.add(database: sqlite, as: .sqlite)
     services.register(databases)
 
