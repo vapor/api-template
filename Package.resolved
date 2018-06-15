@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/vapor/fluent-sqlite.git",
         "state": {
           "branch": null,
-          "revision": "d2f91d5cfb60982d7e6107d15804f8ee5db4f8df",
-          "version": "3.0.0-rc.3"
+          "revision": "8c5c44a76c6d47034607c1af6286ede85581d3f5",
+          "version": "3.0.0-rc.3.0.1"
         }
       },
       {
@@ -96,8 +96,8 @@
         "repositoryURL": "https://github.com/vapor/sqlite.git",
         "state": {
           "branch": null,
-          "revision": "105477bf4903938942ffe11583d589255a0fae25",
-          "version": "3.0.0-rc.3"
+          "revision": "7670865534744e5acc1f8899a7d0110d7c2c5ab5",
+          "version": "3.0.0-rc.3.0.1"
         }
       },
       {
