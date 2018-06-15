@@ -1,8 +1,8 @@
-import FluentSQLite
+import FluentMySQL
 import Vapor
 
 /// A single entry of a Todo list.
-final class Todo: SQLiteModel {
+final class Todo: MySQLModel {
     /// The unique identifier for this `Todo`.
     var id: Int?
 
@@ -17,7 +17,7 @@ final class Todo: SQLiteModel {
 }
 
 /// Allows `Todo` to be used as a dynamic migration.
-extension Todo: Migration { }
+extension Todo: MySQLMigration { }
 
 /// Allows `Todo` to be encoded to and decoded from HTTP messages.
 extension Todo: Content { }
