@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/vapor/core.git",
         "state": {
           "branch": null,
-          "revision": "e5582911ed940289212a36321e15ec561d947dbe",
-          "version": "3.3.0"
+          "revision": "7f56a09995bf3c8df562be456bdcda405d9d0678",
+          "version": "3.4.1"
         }
       },
       {
@@ -33,8 +33,8 @@
         "repositoryURL": "https://github.com/vapor/database-kit.git",
         "state": {
           "branch": null,
-          "revision": "4ac3e7437f9b95ce32b4d970bafa590bb3579647",
-          "version": "1.1.0"
+          "revision": "acdd4d3384ec0122dcfcca8d23d9054a2860ffba",
+          "version": "1.2.0"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
           "branch": null,
-          "revision": "ba8bd2fb3c09cd6e9e2e75eb8cf7c3968d123fb9",
-          "version": "3.0.0-rc.3.0.1"
+          "revision": "058b4579aea61dd05012f121fa9fa9042488c57b",
+          "version": "3.0.0-rc.4.0.2"
         }
       },
       {
@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/vapor/fluent-sqlite.git",
         "state": {
           "branch": null,
-          "revision": "8c5c44a76c6d47034607c1af6286ede85581d3f5",
-          "version": "3.0.0-rc.3.0.1"
+          "revision": "8262e8aa3f66a4f1d5c5d6cbddfd0a3b12cf5e31",
+          "version": "3.0.0-rc.4.0.2"
         }
       },
       {
@@ -92,12 +92,21 @@
         }
       },
       {
+        "package": "SQL",
+        "repositoryURL": "https://github.com/vapor/sql.git",
+        "state": {
+          "branch": null,
+          "revision": "f89155dbf3dd48c838f79d28a636bbe32ad38693",
+          "version": "2.0.0-beta.3"
+        }
+      },
+      {
         "package": "SQLite",
         "repositoryURL": "https://github.com/vapor/sqlite.git",
         "state": {
           "branch": null,
-          "revision": "7670865534744e5acc1f8899a7d0110d7c2c5ab5",
-          "version": "3.0.0-rc.3.0.1"
+          "revision": "386a6ed934017c1c9cba4d44b52e00dd5f9fd8d6",
+          "version": "3.0.0-rc.4.1.1"
         }
       },
       {
@@ -168,8 +177,8 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": null,
-          "revision": "09faa90db7ca49d7f75d5f8e385abce93bc7afb3",
-          "version": "3.0.4"
+          "revision": "6b07105a3899fbbae194ee3eb82f54debe502221",
+          "version": "3.0.6"
         }
       },
       {
