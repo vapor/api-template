@@ -4,13 +4,15 @@ import Vapor
 final class TodoController {
     /// Returns a list of all `Todo`s.
     func index(_ req: Request) throws -> Future<[Todo]> {
-        return Todo.query(on: req).all()
+        let repository = try req.make(TodoRepository.self)
+        return repository.findAll(on: req)
     }
 
     /// Saves a decoded `Todo` to the database.
     func create(_ req: Request) throws -> Future<Todo> {
         return try req.content.decode(Todo.self).flatMap { todo in
-            return todo.save(on: req)
+            let repository = try req.make(TodoRepository.self)
+            return repository.save(model: todo, on: req)
         }
     }
 
