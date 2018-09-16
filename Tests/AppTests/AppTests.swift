@@ -3,7 +3,7 @@ import XCTest
 
 final class AppTests: XCTestCase {
     func testNothing() throws {
-        // add your tests here
+        // Add your tests here
         XCTAssert(true)
     }
 
