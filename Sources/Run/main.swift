@@ -1,3 +1,5 @@
 import App
 
-try app(.detect()).run()
+let app = try App.app(.detect())
+try app.run().wait()
+try app.runningServer?.onClose.wait()

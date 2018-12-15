@@ -1,26 +1,56 @@
-import FluentSQLite
+import Fluent
 import Vapor
 
 /// A single entry of a Todo list.
-final class Todo: SQLiteModel {
+final class Todo: Model {
+    struct JSON: Content {
+        var id: Int?
+        var title: String
+    }
+    
+    var entity: String {
+        return "todos"
+    }
+    
+    #warning("TODO: update to shorter syntax when Swift 5 bug fixed")
+    
+//    /// The unique identifier for this `Todo`.
+//    var id: Field<Int> {
+//        return self.field("id", nil, .primaryKey)
+//    }
+//
+//    /// A title describing what this `Todo` entails.
+//    var title: Field<String> {
+//        return self.field("title")
+//    }
+    
     /// The unique identifier for this `Todo`.
-    var id: Int?
-
+    var id: ModelField<Todo, Int> {
+        return self.field("id", nil, .primaryKey)
+    }
+    
     /// A title describing what this `Todo` entails.
-    var title: String
-
-    /// Creates a new `Todo`.
-    init(id: Int? = nil, title: String) {
-        self.id = id
-        self.title = title
+    var title: ModelField<Todo, String> {
+        return self.field("title")
+    }
+    
+    /// See `Model`.
+    var properties: [Property] {
+        return [self.id, self.title]
+    }
+    
+    /// See `Model`.
+    var storage: Storage
+    
+    /// See `Model`.
+    init(storage: Storage) {
+        self.storage = storage
+    }
+    
+    func json() throws -> JSON {
+        return try .init(
+            id: self.id.get(),
+            title: self.title.get()
+        )
     }
 }
-
-/// Allows `Todo` to be used as a dynamic migration.
-extension Todo: Migration { }
-
-/// Allows `Todo` to be encoded to and decoded from HTTP messages.
-extension Todo: Content { }
-
-/// Allows `Todo` to be used as a dynamic parameter in route definitions.
-extension Todo: Parameter { }
