@@ -23,7 +23,6 @@ RUN apt-get -qq update && apt-get install -y \
 WORKDIR /app
 COPY --from=builder /build/bin/Run .
 COPY --from=builder /build/lib/* /usr/lib/
-COPY --from=builder /app/mail.html ./mail.html
 # Uncomment the next line if you need to load resources from the `Public` directory
 #COPY --from=builder /app/Public ./Public
 # Uncommand the next line if you are using Leaf
