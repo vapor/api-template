@@ -1,8 +1,8 @@
-import FluentSQLite
+import Fluent#(fluentdb)
 import Vapor
 
 /// A single entry of a Todo list.
-final class Todo: SQLiteModel {
+final class Todo: #(fluentdb)Model {
     /// The unique identifier for this `Todo`.
     var id: Int?
 

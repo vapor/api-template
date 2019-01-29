@@ -1,0 +1,39 @@
+{
+    "name": "vapor template",
+    "excludes": [
+        "leaf.seed"
+    ],
+    "questions": [
+        { 
+            "var": "fluent",
+            "display": "would you like to use fluent?",
+            "choices": ["true", "false"]
+        },
+        {
+            "var": "fluentdb",
+            "display": "which fluent database?",
+            "choices": [
+                "SQLite",
+                "PostgreSQL",
+                "MySQL"
+            ],
+            "conditions": [
+                {
+                    "var": "fluent",
+                    "equals": "true"
+                }
+            ]
+        },
+        {
+            "var": "fluentversion",
+            "display": "which version?",
+            "default": "3.0.0",
+            "conditions": [
+                {
+                    "var": "fluent",
+                    "equals": "true"
+                }
+            ]
+        }
+    ]
+}

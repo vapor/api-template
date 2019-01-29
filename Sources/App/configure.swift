@@ -3,8 +3,10 @@ import Vapor
 
 /// Called before your application initializes.
 public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
+    #if(fluent) {
     /// Register providers first
-    try services.register(FluentSQLiteProvider())
+    try services.register(Fluent#(fluentdb)Provider())
+    }
 
     /// Register routes to the router
     let router = EngineRouter.default()
@@ -17,17 +19,41 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
     services.register(middlewares)
 
-    // Configure a SQLite database
-    let sqlite = try SQLiteDatabase(storage: .memory)
+    #if(fluent) {
+    /// Configure a #(fluentdb) database
+    services.register { c -> #(fluentdb)Database in
+        #if(fluentdb == "SQLite") {
+        return try #(fluentdb)Database(storage: .memory)
+        } else {
+        return try #(fluentdb)Database(config: c.make())
+        }
+    }
 
-    /// Register the configured SQLite database to the database config.
-    var databases = DatabasesConfig()
-    databases.add(database: sqlite, as: .sqlite)
-    services.register(databases)
+    /// Register the configured #(fluentdb) database to the database config.
+    services.register { c -> DatabasesConfig in
+        var databases = DatabasesConfig()
+        #if(fluentdb == "SQLite") {
+        try databases.add(database: c.make(#(fluentdb)Database.self), as: .sqlite)
+        } else if (fluentdb == "PostgreSQL") {
+        try databases.add(database: c.make(#(fluentdb)Database.self), as: .psql)
+        } else if (fluentdb == "MySQL") {
+        try databases.add(database: c.make(#(fluentdb)Database.self), as: .mysql)
+        }
+        return databases
+    }
 
     /// Configure migrations
-    var migrations = MigrationConfig()
-    migrations.add(model: Todo.self, database: .sqlite)
-    services.register(migrations)
-
+    services.register { c -> MigrationConfig in
+        var migrations = MigrationConfig()
+        #if(fluentdb == "SQLite") {
+        migrations.add(model: Todo.self, database: .sqlite)
+        } else if (fluentdb == "PostgreSQL") {
+        migrations.add(model: Todo.self, database: .psql)
+        } else if (fluentdb == "MySQL") {
+        migrations.add(model: Todo.self, database: .mysql)
+        }
+        return migrations
+    }
+    
+    }
 }
