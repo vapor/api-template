@@ -4,6 +4,11 @@
         "leaf.seed"
     ],
     "questions": [
+        {
+            "var": "name",
+            "display": "what would you like to name your app?",
+            "default": "VaporApp"
+        },
         { 
             "var": "fluent",
             "display": "would you like to use fluent?",
