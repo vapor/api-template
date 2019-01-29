@@ -1,4 +1,4 @@
-#if(fluent)
+#if(fluent) {
 import Fluent#(fluentdb)
 import Vapor
 
