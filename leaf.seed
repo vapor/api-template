@@ -1,7 +1,10 @@
 {
     "name": "vapor template",
     "excludes": [
-        "leaf.seed"
+        "leaf.seed",
+        ".git/",
+        ".xcodeproj/",
+        ".build/"
     ],
     "questions": [
         {
