@@ -1,3 +1,4 @@
+#if(fluent)
 import Fluent#(fluentdb)
 import Vapor
 
@@ -24,3 +25,4 @@ extension Todo: Content { }
 
 /// Allows `Todo` to be used as a dynamic parameter in route definitions.
 extension Todo: Parameter { }
+}
