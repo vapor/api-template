@@ -21,16 +21,16 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
 
     #if(fluent) {
     /// Configure a #(fluentdb) database
-    services.register { c -> #(fluentdb)Database in
+    services.register #("{") c -> #(fluentdb)Database in
         #if(fluentdb == "SQLite") {
         return try #(fluentdb)Database(storage: .memory)
         } else {
         return try #(fluentdb)Database(config: c.make())
         }
-    }
+    #("}")
 
     /// Register the configured #(fluentdb) database to the database config.
-    services.register { c -> DatabasesConfig in
+    services.register #("{") c -> DatabasesConfig in
         var databases = DatabasesConfig()
         #if(fluentdb == "SQLite") {
         try databases.add(database: c.make(#(fluentdb)Database.self), as: .sqlite)
@@ -40,10 +40,10 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
         try databases.add(database: c.make(#(fluentdb)Database.self), as: .mysql)
         }
         return databases
-    }
+    #("}")
 
     /// Configure migrations
-    services.register { c -> MigrationConfig in
+    services.register #("{") c -> MigrationConfig in
         var migrations = MigrationConfig()
         #if(fluentdb == "SQLite") {
         migrations.add(model: Todo.self, database: .sqlite)
@@ -53,7 +53,6 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
         migrations.add(model: Todo.self, database: .mysql)
         }
         return migrations
-    }
-    
+    #("}")
     }
 }
