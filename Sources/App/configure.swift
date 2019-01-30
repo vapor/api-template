@@ -1,6 +1,6 @@
 import DatabaseKit
 import PostgresKit
-import FluentPostgres
+import FluentPostgresDriver
 import Vapor
 
 /// Called before your application initializes.
@@ -10,7 +10,7 @@ public func configure(_ s: inout Services) throws {
     // try services.register(FluentSQLiteProvider())
 
     /// Register routes
-    s.extend(HTTPRoutes.self) { r, c in
+    s.extend(Routes.self) { r, c in
         try routes(r, c)
     }
 
@@ -46,7 +46,7 @@ public func configure(_ s: inout Services) throws {
     }
     
     s.register(PostgresDatabase.self) { c in
-        return try .init(config: c.make(), on: c.eventLoop)
+        return try PostgresDatabase(config: c.make(), on: c.eventLoop)
     }
 
     /// Register the configured SQLite database to the database config.

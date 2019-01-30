@@ -2,11 +2,11 @@
   "object": {
     "pins": [
       {
-        "package": "console",
+        "package": "console-kit",
         "repositoryURL": "https://github.com/vapor/console.git",
         "state": {
           "branch": "4",
-          "revision": "e63586039c5aad6b7d438980fb98eaf984f14d57",
+          "revision": "4936cd1cbcdad83873f15a3cb2ef93f313a416e1",
           "version": null
         }
       },
@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/vapor/database-kit.git",
         "state": {
           "branch": "2",
-          "revision": "616a33ba0e3ce973865f5a9185c8596dffff7b56",
+          "revision": "86822188ca7e5aab5c8b8183d9163fadf357ccb7",
           "version": null
         }
       },
@@ -23,17 +23,17 @@
         "package": "fluent",
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
-          "branch": "records",
-          "revision": "334f2039ec9e9661c95fd7e86011b02676c31f3c",
+          "branch": "4",
+          "revision": "7f72f33868591806cac41c622aa198e143c06d32",
           "version": null
         }
       },
       {
-        "package": "http",
+        "package": "net-kit",
         "repositoryURL": "https://github.com/vapor/http.git",
         "state": {
           "branch": "4",
-          "revision": "c553449077872f650372ef0d8f3fe1b0ed26de56",
+          "revision": "e85a1e43413c4bc7904d744af1624a3b34eeea5f",
           "version": null
         }
       },
@@ -42,7 +42,7 @@
         "repositoryURL": "https://github.com/vapor-community/nio-postgres.git",
         "state": {
           "branch": "master",
-          "revision": "672a6879cd9fd8e48bf5ff35eeb175c6b597d2b0",
+          "revision": "2ecf6c5e667a64659b2fe2acfb5c50189f312e49",
           "version": null
         }
       },
@@ -51,16 +51,16 @@
         "repositoryURL": "https://github.com/vapor/postgresql.git",
         "state": {
           "branch": "2",
-          "revision": "a2c06c86d321220174dc109825d56d03c298f15d",
+          "revision": "a8bd19ad4928285ebede5b0fad974a9a4985aad2",
           "version": null
         }
       },
       {
-        "package": "routing",
+        "package": "routing-kit",
         "repositoryURL": "https://github.com/vapor/routing.git",
         "state": {
           "branch": "4",
-          "revision": "51f51bb4b5f9bce64ee7017e30ff7a5c515c2b56",
+          "revision": "d1916878ebc8b64b800065a456d03465265c401c",
           "version": null
         }
       },
@@ -69,7 +69,7 @@
         "repositoryURL": "https://github.com/vapor/service.git",
         "state": {
           "branch": "2",
-          "revision": "b0643fae3696caa92fb5b848887ef09329a10b3f",
+          "revision": "65ba5ab2a697d54aaea837a76cc42299262ea2f7",
           "version": null
         }
       },
@@ -78,7 +78,7 @@
         "repositoryURL": "https://github.com/vapor/sql.git",
         "state": {
           "branch": "3",
-          "revision": "0176246321771224bc431e21b6217708d6589748",
+          "revision": "640c498fca86513735feb5370beeba99b36236ac",
           "version": null
         }
       },
@@ -87,7 +87,7 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": "master",
-          "revision": "2262b656ac4382c85c95f921aceae259c9416a17",
+          "revision": "58a58b968062cfb431744268a640db4e7e412d83",
           "version": null
         }
       },
@@ -96,7 +96,7 @@
         "repositoryURL": "https://github.com/tanner0101/swift-nio-ssl.git",
         "state": {
           "branch": "master",
-          "revision": "a8335c3e4ab7d6a04376dcf3231c9e18c11dc3ac",
+          "revision": "1fccb9d2fa7545c4f94c4c803bd102ef64365ae9",
           "version": null
         }
       },
@@ -110,20 +110,11 @@
         }
       },
       {
-        "package": "swift-nio-zlib-support",
-        "repositoryURL": "https://github.com/apple/swift-nio-zlib-support.git",
-        "state": {
-          "branch": null,
-          "revision": "37760e9a52030bb9011972c5213c3350fa9d41fd",
-          "version": "1.0.0"
-        }
-      },
-      {
         "package": "vapor",
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": "4",
-          "revision": "e6573f894dbb4f1db18350bc35b5e34b07af7e79",
+          "revision": "70a95f250a1b4facf339cd2ce22a245eafe5d8d3",
           "version": null
         }
       }

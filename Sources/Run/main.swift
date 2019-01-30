@@ -1,5 +1,5 @@
 import App
 
-let app = try App.app(.detect())
+let app = try App(env: .detect())
 try app.run().wait()
-try app.runningServer?.onClose.wait()
+try app.cleanup()

@@ -1,6 +1,11 @@
 import Fluent
 import Vapor
 
+
+struct TodoFilters: URLContent {
+    var title: String?
+}
+
 /// Controls basic CRUD operations on `Todo`s.
 final class TodoController {
     /// Fluent database to execute queries on.
@@ -12,20 +17,17 @@ final class TodoController {
     }
     
     /// Returns a list of all `Todo`s.
-    func index(_ req: HTTPRequest) throws -> EventLoopFuture<[Todo.JSON]> {
-        return self.db.query(Todo.self).all().thenThrowing { todos in
-            return try todos.map { try $0.json() }
+    func index(filters: TodoFilters) throws -> EventLoopFuture<[Todo]> {
+        let query = self.db.query(Todo.self)
+        if let title = filters.title {
+            _ = query.filter(\.title == title)
         }
+        return query.all()
     }
 
     /// Saves a decoded `Todo` to the database.
-    func create(_ req: HTTPRequest) throws -> EventLoopFuture<Todo.JSON> {
-        let data = try req.content.decode(Todo.JSON.self)
-        let todo = Todo.new()
-        todo.title.set(to: data.title)
-        return todo.save(on: self.db).thenThrowing { _ in
-            return try todo.json()
-        }
+    func create(todo: Todo, ctx: Context) throws -> EventLoopFuture<Todo> {
+        return todo.save(on: self.db).map { todo }
     }
 
     /// Deletes a parameterized `Todo`.
