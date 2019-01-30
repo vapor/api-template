@@ -1,4 +1,5 @@
-import FluentSQLite
+#if(fluent) {
+import Fluent#(fluentdb) }
 import Vapor
 
 /// Called before your application initializes.
