@@ -3,7 +3,7 @@ import Fluent#(fluentdb)
 import Vapor
 
 /// A single entry of a Todo list.
-final class Todo: #(fluentdb)Model {
+final class Todo: #(fluentdb)Model #("{")
     /// The unique identifier for this `Todo`.
     var id: Int?
 
@@ -11,18 +11,18 @@ final class Todo: #(fluentdb)Model {
     var title: String
 
     /// Creates a new `Todo`.
-    init(id: Int? = nil, title: String) {
+    init(id: Int? = nil, title: String) #("{")
         self.id = id
         self.title = title
-    }
-}
+    #("}")
+#("}")
 
 /// Allows `Todo` to be used as a dynamic migration.
-extension Todo: Migration { }
+extension Todo: Migration #("{ }")
 
 /// Allows `Todo` to be encoded to and decoded from HTTP messages.
-extension Todo: Content { }
+extension Todo: Content #("{ }")
 
 /// Allows `Todo` to be used as a dynamic parameter in route definitions.
-extension Todo: Parameter { }
+extension Todo: Parameter #("{ }")
 }
