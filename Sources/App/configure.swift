@@ -1,13 +1,11 @@
-import DatabaseKit
-import PostgresKit
+import Fluent
 import FluentPostgresDriver
 import Vapor
 
 /// Called before your application initializes.
 public func configure(_ s: inout Services) throws {
     /// Register providers first
-    #warning("TODO: update Fluent provider")
-    // try services.register(FluentSQLiteProvider())
+    try s.provider(FluentProvider())
 
     /// Register routes
     s.extend(Routes.self) { r, c in
@@ -48,20 +46,20 @@ public func configure(_ s: inout Services) throws {
     s.register(PostgresDatabase.self) { c in
         return try PostgresDatabase(config: c.make(), on: c.eventLoop)
     }
-
-    /// Register the configured SQLite database to the database config.
-    s.register(Databases.self) { c in
-        var databases = Databases()
-        try databases.add(database: c.make(PostgresDatabase.self), as: .psql)
-        return databases
+    
+    s.register(FluentDatabases.self) { c in
+        var dbs = FluentDatabases()
+        let psql = try c.make(PostgresDatabase.self)
+        let pool = try psql.makeConnectionPool(config: c.make(ConnectionPoolConfig.self))
+        dbs.add(pool, as: .psql)
+        return dbs
     }
-
-    #warning("TODO: update migrations config")
-//    /// Configure migrations
-//    var migrations = MigrationConfig()
-//    migrations.add(model: Todo.self, database: .sqlite)
-//    services.register(migrations)
-
+    
+    s.register(FluentMigrations.self) { c in
+        var migrations = FluentMigrations()
+        migrations.add(Todo.autoMigration(), to: .psql)
+        return migrations
+    }
 }
 
 extension Container {
@@ -70,8 +68,8 @@ extension Container {
     }
 }
 
-extension DatabaseIdentifier {
-    static var psql: DatabaseIdentifier<PostgresDatabase> {
-        return "psql"
+extension FluentDatabaseID {
+    static var psql: FluentDatabaseID {
+        return FluentDatabaseID(string: "psql")
     }
 }

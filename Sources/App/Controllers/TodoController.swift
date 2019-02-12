@@ -1,11 +1,6 @@
 import Fluent
 import Vapor
 
-
-struct TodoFilters: URLContent {
-    var title: String?
-}
-
 /// Controls basic CRUD operations on `Todo`s.
 final class TodoController {
     /// Fluent database to execute queries on.
@@ -17,12 +12,8 @@ final class TodoController {
     }
     
     /// Returns a list of all `Todo`s.
-    func index(filters: TodoFilters) throws -> EventLoopFuture<[Todo]> {
-        let query = self.db.query(Todo.self)
-        if let title = filters.title {
-            _ = query.filter(\.title == title)
-        }
-        return query.all()
+    func index(req: HTTPRequest, ctx: Context) throws -> EventLoopFuture<[Todo]> {
+        return self.db.query(Todo.self).all()
     }
 
     /// Saves a decoded `Todo` to the database.
