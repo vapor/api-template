@@ -4,10 +4,10 @@ import Vapor
 /// Controls basic CRUD operations on `Todo`s.
 final class TodoController {
     /// Fluent database to execute queries on.
-    let db: FluentDatabase
+    let db: Database
     
     /// Creates a new `TodoController`.
-    init(db: FluentDatabase) {
+    init(db: Database) {
         self.db = db
     }
     
@@ -22,7 +22,7 @@ final class TodoController {
     }
 
     /// Deletes a parameterized `Todo`.
-    func delete(_ req: HTTPRequest) throws -> EventLoopFuture<HTTPStatus> {
+    func delete(_ req: HTTPRequest, ctx: Context) throws -> EventLoopFuture<HTTPStatus> {
         fatalError()
     }
 }

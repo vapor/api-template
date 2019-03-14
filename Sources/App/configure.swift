@@ -26,50 +26,20 @@ public func configure(_ s: inout Services) throws {
         return middlewares
     }
     
-    s.register(PostgresDatabase.Config.self) { c in
-        return .init(
-            hostname: "localhost",
-            username: "vapor_username",
-            password: "vapor_password",
-            database: "vapor_database"
-        )
+    s.extend(HTTPServerConfig.self) { config, c in
+        config.supportVersions = [.one]
     }
     
-    s.register(ConnectionPoolConfig.self) { c in
-        return .init(maxConnections: 12)
+    s.extend(Databases.self) { dbs, c in
+        guard let url = Environment.get("DB_URL") else {
+            fatalError("DB_URL not set in environment.")
+        }
+        dbs.postgres(config: PostgresConfig(url: URL(string: url)!)!)
     }
     
-    s.register(ThreadConnectionPool.self) { c in
-        return try .init(databases: c.make(), config: c.make())
-    }
-    
-    s.register(PostgresDatabase.self) { c in
-        return try PostgresDatabase(config: c.make(), on: c.eventLoop)
-    }
-    
-    s.register(FluentDatabases.self) { c in
-        var dbs = FluentDatabases()
-        let psql = try c.make(PostgresDatabase.self)
-        let pool = try psql.makeConnectionPool(config: c.make(ConnectionPoolConfig.self))
-        dbs.add(pool, as: .psql)
-        return dbs
-    }
-    
-    s.register(FluentMigrations.self) { c in
-        var migrations = FluentMigrations()
+    s.register(Migrations.self) { c in
+        var migrations = Migrations()
         migrations.add(Todo.autoMigration(), to: .psql)
         return migrations
-    }
-}
-
-extension Container {
-    func connectionPool<D>(for dbid: DatabaseIdentifier<D>) throws -> ConnectionPool<D> {
-        return try self.make(ThreadConnectionPool.self).get(for: dbid)
-    }
-}
-
-extension FluentDatabaseID {
-    static var psql: FluentDatabaseID {
-        return FluentDatabaseID(string: "psql")
     }
 }

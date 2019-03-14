@@ -8,20 +8,13 @@ public func routes(_ r: Routes, _ c: Container) throws {
         return "It works!"
     }
     
+    
     // Basic "Hello, world!" example
-    r.get("hello") { req, _ -> StaticString in
+    r.get("hello") { req, _ -> String in
         return "Hello, world!"
     }
-
-    // Example of configuring a controller
-    let psql = try c.make(FluentDatabases.self).database(.psql)!
     
-    r.get("migrate") { _, _ -> EventLoopFuture<HTTPStatus> in
-        return Todo.autoMigration().prepare(on: psql).map { _ in
-            return .ok
-        }
-    }
-    
+    let psql = try c.make(Databases.self).database(.psql)!
     let todoController = TodoController(db: psql)
     r.get("todos", use: todoController.index)
     r.post("todos", use: todoController.create)

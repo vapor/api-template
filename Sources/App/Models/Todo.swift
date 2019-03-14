@@ -2,19 +2,19 @@ import Fluent
 import Vapor
 
 /// A single entry of a Todo list.
-final class Todo: FluentModel, Content {
+final class Todo: Model, Content {
     var entity: String {
         return "todos"
     }
     
     /// The unique identifier for this `Todo`.
     var id: Field<Int> {
-        return self.field("id", .int, .identifier)
+        return self.id("id")
     }
     
     /// A title describing what this `Todo` entails.
     var title: Field<String> {
-        return self.field("title", .string, .required)
+        return self.field("title")
     }
     
     /// See `Model`.

@@ -1,5 +1,5 @@
 import App
 
-try app(.detect())
-    .run().wait()
-    .cleanup()
+let app = try App.app(.detect())
+defer { try! app.shutdown() }
+_ = try app.run().wait()
