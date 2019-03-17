@@ -27,6 +27,8 @@ final class TodoController {
             return todo.delete(on: self.db)
         }.transform(to: .ok)
     }
+    
+    #warning("TODO: allow decoding content + query in same signature + access headers")
 }
 
 protocol _Optional {
