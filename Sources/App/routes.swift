@@ -18,5 +18,11 @@ public func routes(_ r: Routes, _ c: Container) throws {
     let todoController = TodoController(db: psql)
     r.get("todos", use: todoController.index)
     r.post("todos", use: todoController.create)
-    // r.delete("todos", Todo.parameter, use: todoController.delete)
+    r.on(.DELETE, to: "todos", Todo.parameter, use: todoController.delete)
+}
+
+extension Model {
+    public static var parameter: PathComponent {
+        return .parameter(self.entity)
+    }
 }

@@ -33,7 +33,7 @@
         "repositoryURL": "https://github.com/vapor/fluent-kit.git",
         "state": {
           "branch": "master",
-          "revision": "d2f20fe957c9a5e66ddb26636e72c803e5509887",
+          "revision": "e85fd0ecbe992b2c490894704c4eff47fa02bd2b",
           "version": null
         }
       },
@@ -60,7 +60,7 @@
         "repositoryURL": "https://github.com/vapor/nio-kit.git",
         "state": {
           "branch": "master",
-          "revision": "3035f9cdee09c3ec0c4f3e18770bd4904bc5b36e",
+          "revision": "b575c854267eb1e38ab5b83925cb08bd09f9442b",
           "version": null
         }
       },
@@ -87,7 +87,7 @@
         "repositoryURL": "https://github.com/vapor/routing.git",
         "state": {
           "branch": "master",
-          "revision": "e1e3f30624ddb08c76f82c9787371afb329d4379",
+          "revision": "9967b3cbd857b1c71faf6e8fb642dd9e12b37a1f",
           "version": null
         }
       },
@@ -114,7 +114,7 @@
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
           "branch": "master",
-          "revision": "3f53e0ab50053ee4990bed4e9c1f80a773ed4e0a",
+          "revision": "98886523fba46b9d9de5b11a55ff08c022b53795",
           "version": null
         }
       },
@@ -123,8 +123,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "36a52e1ea3ec03007d67a046856e6b938a6ef81e",
-          "version": "2.0.0-convergence.1"
+          "revision": "35ed9ff754493f7ebe6f0795c59c34c58696c3ea",
+          "version": "2.0.0-convergence.2"
         }
       },
       {
@@ -141,7 +141,7 @@
         "repositoryURL": "https://github.com/apple/swift-nio-http2.git",
         "state": {
           "branch": "master",
-          "revision": "049ba81fcc09ac82c8c9f0361634002f6a0161be",
+          "revision": "55daa4cd4e995e55df6737d898af031ea4037f2b",
           "version": null
         }
       },
