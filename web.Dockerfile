@@ -14,7 +14,7 @@ RUN swift build -c release && mv `swift build -c release --show-bin-path` /build
 FROM ubuntu:18.04
 ARG env
 RUN apt-get -qq update && apt-get install -y \
-  libatomic1 libicu60 libxml2 pkg-config git curl libz-dev \
+  libatomic1 libicu60 libxml2 pkg-config curl libz-dev libbsd-dev \
   && rm -r /var/lib/apt/lists/*
 WORKDIR /app
 COPY --from=builder /build/bin/Run .
