@@ -13,8 +13,9 @@ RUN swift build -c release && mv `swift build -c release --show-bin-path` /build
 # Production image
 FROM ubuntu:18.04
 ARG env
-RUN apt-get -qq update && apt-get install -y \
-  libatomic1 libicu60 libxml2 pkg-config libcurl4 libz-dev libbsd0 \
+# DEBIAN_FRONTEND=noninteractive for automatic UTC configuration in tzdata
+RUN apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get install -y \ 
+  libatomic1 libicu60 libxml2 pkg-config libcurl4 libz-dev libbsd0 tzdata \
   && rm -r /var/lib/apt/lists/*
 WORKDIR /app
 COPY --from=builder /build/bin/Run .
