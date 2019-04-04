@@ -25,9 +25,8 @@ final class TodoController {
     func delete(_ req: HTTPRequest, ctx: Context) throws -> EventLoopFuture<HTTPStatus> {
         return Todo.find(ctx.parameters.get("todoID"), on: self.db)
             .unwrap(or: Abort(.notFound))
-            .flatMap { todo in
-                return todo.delete(on: self.db)
-            }.transform(to: HTTPStatus.ok)
+            .flatMap { $0.delete(on: self.db) }
+            .transform(to: .ok)
     }
     
     #warning("TODO: allow decoding content + query in same signature + access headers")
