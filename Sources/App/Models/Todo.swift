@@ -2,23 +2,13 @@ import Fluent
 import Vapor
 
 /// A single entry of a Todo list.
-final class Todo: Model, Content {
-    struct Properties: ModelProperties {
-        /// The unique identifier for this `Todo`.
-        let id = Field<Int>("id")
-        /// A title describing what this `Todo` entails.
-        let title = Field<String>("title")
-    }
+struct Todo: Model {
+    static let `default` = Todo()
     static let entity = "todos"
     
-    /// `Model` conformance.
-    static var properties = Properties()
+    /// The unique identifier for this `Todo`.
+    let id = Field<Int>("id")
+    /// A title describing what this `Todo` entails.
+    let title = Field<String>("title")
     
-    /// `Model` conformance.
-    var storage: Storage
-    
-    /// `Model` conformance.
-    init(storage: Storage) {
-        self.storage = storage
-    }
 }

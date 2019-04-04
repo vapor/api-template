@@ -26,14 +26,12 @@ public func configure(_ s: inout Services) throws {
         return middlewares
     }
     
-    s.extend(HTTPServerConfig.self) { config, c in
+    s.extend(HTTPServer.Configuration.self) { config, c in
         config.supportVersions = [.one]
     }
     
     s.extend(Databases.self) { dbs, c in
-        guard let url = Environment.get("DB_URL") else {
-            fatalError("DB_URL not set in environment.")
-        }
+        let url = Environment.get("DB_URL") ?? "postgres://vapor_username:vapor_password@localhost:5432/vapor_database"
         dbs.postgres(config: PostgresConfig(url: URL(string: url)!)!)
     }
     

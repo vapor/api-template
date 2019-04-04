@@ -12,20 +12,22 @@ final class TodoController {
     }
     
     /// Returns a list of all `Todo`s.
-    func index(req: HTTPRequest, ctx: Context) throws -> EventLoopFuture<[Todo]> {
+    func index(req: HTTPRequest, ctx: Context) throws -> EventLoopFuture<[Todo.Row]> {
         return self.db.query(Todo.self).all()
     }
 
     /// Saves a decoded `Todo` to the database.
-    func create(todo: Todo, ctx: Context) throws -> EventLoopFuture<Todo> {
+    func create(todo: Todo.Row, ctx: Context) throws -> EventLoopFuture<Todo.Row> {
         return todo.save(on: self.db).map { todo }
     }
 
     /// Deletes a parameterized `Todo`.
     func delete(_ req: HTTPRequest, ctx: Context) throws -> EventLoopFuture<HTTPStatus> {
-        return self.db.find(Todo.self, ctx.parameters.get(Todo.self)).flatMap { todo in
-            return todo.delete(on: self.db)
-        }.transform(to: .ok)
+        return Todo.find(ctx.parameters.get("todoID"), on: self.db)
+            .unwrap(or: Abort(.notFound))
+            .flatMap { todo in
+                return todo.delete(on: self.db)
+            }.transform(to: HTTPStatus.ok)
     }
     
     #warning("TODO: allow decoding content + query in same signature + access headers")
@@ -41,11 +43,13 @@ extension Optional: _Optional {
     }
 }
 
+extension ModelRow: Content { }
+
 extension Parameters {
-    public func get<Model>(_ model: Model.Type) -> Model.ID?
-        where Model: FluentKit.Model, Model.ID: LosslessStringConvertible
+    public func get<T>(_ name: String, as type: T.Type = T.self) -> T?
+        where T: LosslessStringConvertible
     {
-        return self.get(Model.entity, as: Model.ID.self)
+        return self.get(name).flatMap(T.init)
     }
 }
 
@@ -57,29 +61,5 @@ extension EventLoopFuture where Value: _Optional {
             }
             return value
         }
-    }
-}
-
-extension Database {
-    public func find<Model>(
-        _ model: Model.Type,
-        _ id: Model.ID?,
-        or error: Error = Abort(.notFound)
-    ) -> EventLoopFuture<Model>
-        where Model: FluentKit.Model, Model.ID: LosslessStringConvertible
-    {
-        guard let id = id else {
-            return self.eventLoop.makeFailedFuture(error)
-        }
-        return self.query(Model.self).filter(\.id == id).first().unwrap(or: error)
-    }
-}
-
-extension Model {
-    public static func find(_ id: Self.ID?, on database: Database) -> EventLoopFuture<Self?> {
-        guard let id = id else {
-            return database.eventLoop.makeSucceededFuture(nil)
-        }
-        return database.query(Self.self).filter(\.id == id).first()
     }
 }

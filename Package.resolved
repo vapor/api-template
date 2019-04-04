@@ -15,7 +15,16 @@
         "repositoryURL": "https://github.com/vapor/console.git",
         "state": {
           "branch": "master",
-          "revision": "995e92190bb2fe633c40d525b92dd4b25319688f",
+          "revision": "7b21566be3a907fc9083d6675db59666d22fb6d2",
+          "version": null
+        }
+      },
+      {
+        "package": "crypto-kit",
+        "repositoryURL": "https://github.com/vapor/crypto.git",
+        "state": {
+          "branch": "master",
+          "revision": "e60bc60b74b9b976800a44369e1067180fa59cba",
           "version": null
         }
       },
@@ -33,7 +42,7 @@
         "repositoryURL": "https://github.com/vapor/fluent-kit.git",
         "state": {
           "branch": "master",
-          "revision": "e85fd0ecbe992b2c490894704c4eff47fa02bd2b",
+          "revision": "44f1e9a9384bb2204a22f1984c23bcac9b863eab",
           "version": null
         }
       },
@@ -42,7 +51,7 @@
         "repositoryURL": "https://github.com/vapor/fluent-postgresql.git",
         "state": {
           "branch": "master",
-          "revision": "88f2b00324752a554981dce7d7c69fc7b59fb7f2",
+          "revision": "da340d87cf0fd1ac7d7d2828e538b454378e2a40",
           "version": null
         }
       },
@@ -51,7 +60,7 @@
         "repositoryURL": "https://github.com/vapor/http.git",
         "state": {
           "branch": "master",
-          "revision": "76beea2d8b51d36c021674ec8e37fbff7788d000",
+          "revision": "dc2e4e2d09f9e49759bbec8ebc875f1c48a66236",
           "version": null
         }
       },
@@ -60,7 +69,7 @@
         "repositoryURL": "https://github.com/vapor/nio-kit.git",
         "state": {
           "branch": "master",
-          "revision": "b575c854267eb1e38ab5b83925cb08bd09f9442b",
+          "revision": "161b2d7aa2d07af1501453a368638ca6a1a51f15",
           "version": null
         }
       },
@@ -69,7 +78,7 @@
         "repositoryURL": "https://github.com/vapor/nio-postgres.git",
         "state": {
           "branch": "master",
-          "revision": "e8e10ef69be3f4b91c741eb8b3b54fef49b163ff",
+          "revision": "d2d9e8c82c1e80885bf3662ed3cb2f54de2d03f6",
           "version": null
         }
       },
@@ -78,7 +87,7 @@
         "repositoryURL": "https://github.com/vapor/postgresql.git",
         "state": {
           "branch": "master",
-          "revision": "19fd35bab57e459100c59f3e627055703166946a",
+          "revision": "cc36d371788542cf4d257c15cc7396aa748cdef7",
           "version": null
         }
       },
@@ -114,7 +123,7 @@
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
           "branch": "master",
-          "revision": "98886523fba46b9d9de5b11a55ff08c022b53795",
+          "revision": "55c927dd31fb5d37b9cad6b707cbe9bb2568c71f",
           "version": null
         }
       },
@@ -123,26 +132,26 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "35ed9ff754493f7ebe6f0795c59c34c58696c3ea",
-          "version": "2.0.0-convergence.2"
+          "revision": "b8368b6e09b7993896c42a6199103a73ecc1dbf9",
+          "version": "2.0.0"
         }
       },
       {
         "package": "swift-nio-extras",
         "repositoryURL": "https://github.com/apple/swift-nio-extras.git",
         "state": {
-          "branch": "master",
-          "revision": "7d42934f15d756342212e15532a911f0d1453042",
-          "version": null
+          "branch": null,
+          "revision": "ef608e41a98c769a496b567141860718132733fa",
+          "version": "1.0.0"
         }
       },
       {
         "package": "swift-nio-http2",
         "repositoryURL": "https://github.com/apple/swift-nio-http2.git",
         "state": {
-          "branch": "master",
-          "revision": "55daa4cd4e995e55df6737d898af031ea4037f2b",
-          "version": null
+          "branch": null,
+          "revision": "a92923bcb7d884e6977b7cb131705703936af956",
+          "version": "1.0.1"
         }
       },
       {
@@ -150,8 +159,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-ssl.git",
         "state": {
           "branch": null,
-          "revision": "5995ce5eac7b8e9fa65f4871c0173ffc54e26db7",
-          "version": "2.0.0-convergence.1"
+          "revision": "47d971e1367f6df8ddf06c284ad266df39c31024",
+          "version": "2.0.1"
         }
       },
       {
@@ -159,7 +168,7 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": "master",
-          "revision": "def308b5df18e0cc5873a4cb51e0e4b86805cb7c",
+          "revision": "b6c21bcfa1ceb7643e2a563e3cf2be5512817a5a",
           "version": null
         }
       }
