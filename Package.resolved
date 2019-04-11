@@ -15,7 +15,7 @@
         "repositoryURL": "https://github.com/vapor/console.git",
         "state": {
           "branch": "master",
-          "revision": "7b21566be3a907fc9083d6675db59666d22fb6d2",
+          "revision": "869b96e2dcdb03ae6f8052866bb2fa3d28723cad",
           "version": null
         }
       },
@@ -33,7 +33,7 @@
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
           "branch": "master",
-          "revision": "ebc584baec4b2859fd7b6f0bbabfdf41f931475a",
+          "revision": "e86cda07722c2749b4043262231aede1e9837416",
           "version": null
         }
       },
@@ -42,25 +42,16 @@
         "repositoryURL": "https://github.com/vapor/fluent-kit.git",
         "state": {
           "branch": "master",
-          "revision": "44f1e9a9384bb2204a22f1984c23bcac9b863eab",
+          "revision": "f738bd52fe0a3dc68ae5c27e3e6889743f030f8e",
           "version": null
         }
       },
       {
-        "package": "fluent-postgres-driver",
-        "repositoryURL": "https://github.com/vapor/fluent-postgresql.git",
+        "package": "fluent-sqlite-driver",
+        "repositoryURL": "https://github.com/vapor/fluent-sqlite.git",
         "state": {
           "branch": "master",
-          "revision": "da340d87cf0fd1ac7d7d2828e538b454378e2a40",
-          "version": null
-        }
-      },
-      {
-        "package": "http-kit",
-        "repositoryURL": "https://github.com/vapor/http.git",
-        "state": {
-          "branch": "master",
-          "revision": "dc2e4e2d09f9e49759bbec8ebc875f1c48a66236",
+          "revision": "99dcbe22600324ad959c5e8c0e1c6fa0233667bf",
           "version": null
         }
       },
@@ -74,20 +65,11 @@
         }
       },
       {
-        "package": "nio-postgres",
-        "repositoryURL": "https://github.com/vapor/nio-postgres.git",
+        "package": "nio-sqlite",
+        "repositoryURL": "https://github.com/vapor/nio-sqlite.git",
         "state": {
           "branch": "master",
-          "revision": "d2d9e8c82c1e80885bf3662ed3cb2f54de2d03f6",
-          "version": null
-        }
-      },
-      {
-        "package": "postgres-kit",
-        "repositoryURL": "https://github.com/vapor/postgresql.git",
-        "state": {
-          "branch": "master",
-          "revision": "cc36d371788542cf4d257c15cc7396aa748cdef7",
+          "revision": "72bacae69dc921a9e73adb9964ea46e007d79807",
           "version": null
         }
       },
@@ -96,16 +78,7 @@
         "repositoryURL": "https://github.com/vapor/routing.git",
         "state": {
           "branch": "master",
-          "revision": "9967b3cbd857b1c71faf6e8fb642dd9e12b37a1f",
-          "version": null
-        }
-      },
-      {
-        "package": "service-kit",
-        "repositoryURL": "https://github.com/vapor/service.git",
-        "state": {
-          "branch": "master",
-          "revision": "8698263f1b1585ea9531ddfebb2b7a8a3e73d542",
+          "revision": "c555a95a5e37ce4d05973f9e8960d2e1b0a09252",
           "version": null
         }
       },
@@ -123,7 +96,7 @@
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
           "branch": "master",
-          "revision": "55c927dd31fb5d37b9cad6b707cbe9bb2568c71f",
+          "revision": "9a393a5d351d4dd23440f713bf22c3b7f6b6643c",
           "version": null
         }
       },
@@ -168,7 +141,7 @@
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
           "branch": "master",
-          "revision": "b6c21bcfa1ceb7643e2a563e3cf2be5512817a5a",
+          "revision": "af2b50e7e37de2edaf3285924678c415a35d2ac3",
           "version": null
         }
       }

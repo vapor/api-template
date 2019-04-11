@@ -1,5 +1,5 @@
 import Fluent
-import FluentPostgresDriver
+import FluentSQLiteDriver
 import Vapor
 
 /// Called before your application initializes.
@@ -13,9 +13,9 @@ public func configure(_ s: inout Services) throws {
     }
 
     /// Register middleware
-    s.register(MiddlewareConfig.self) { c in
+    s.register(MiddlewareConfiguration.self) { c in
         // Create _empty_ middleware config
-        var middlewares = MiddlewareConfig()
+        var middlewares = MiddlewareConfiguration()
         
         // Serves files from `Public/` directory
         /// middlewares.use(FileMiddleware.self)
@@ -26,18 +26,21 @@ public func configure(_ s: inout Services) throws {
         return middlewares
     }
     
-    s.extend(HTTPServer.Configuration.self) { config, c in
-        config.supportVersions = [.one]
-    }
-    
     s.extend(Databases.self) { dbs, c in
-        let url = Environment.get("DB_URL") ?? "postgres://vapor_username:vapor_password@localhost:5432/vapor_database"
-        dbs.postgres(config: PostgresConfig(url: URL(string: url)!)!)
+        try dbs.sqlite(configuration: c.make(), threadPool: c.make())
+    }
+
+    s.register(SQLiteConfiguration.self) { c in
+        return .init(storage: .connection(.file(path: "db.sqlite")))
+    }
+
+    s.register(Database.self) { c in
+        return try c.make(Databases.self).database(.sqlite)!
     }
     
     s.register(Migrations.self) { c in
         var migrations = Migrations()
-        migrations.add(Todo.autoMigration(), to: .psql)
+        migrations.add(Todo.autoMigration(), to: .sqlite)
         return migrations
     }
 }
