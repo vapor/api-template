@@ -12,13 +12,13 @@ final class TodoController {
     }
     
     /// Returns a list of all `Todo`s.
-    func index(req: Request) throws -> EventLoopFuture<[Todo.Row]> {
-        return self.db.query(Todo.self).all()
+    func index(req: Request) throws -> EventLoopFuture<[Row<Todo>]> {
+        return Todo.query(on: self.db).all()
     }
 
     /// Saves a decoded `Todo` to the database.
-    func create(req: Request) throws -> EventLoopFuture<Todo.Row> {
-        let todo = try req.content.decode(Todo.Row.self)
+    func create(req: Request) throws -> EventLoopFuture<Row<Todo>> {
+        let todo = try req.content.decode(Row<Todo>.self)
         return todo.save(on: self.db).map { todo }
     }
 

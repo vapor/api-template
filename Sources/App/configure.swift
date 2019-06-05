@@ -5,7 +5,7 @@ import Vapor
 /// Called before your application initializes.
 public func configure(_ s: inout Services) throws {
     /// Register providers first
-    try s.provider(FluentProvider())
+    s.provider(FluentProvider())
 
     /// Register routes
     s.extend(Routes.self) { r, c in
