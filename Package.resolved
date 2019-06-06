@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "async-kit",
+        "repositoryURL": "https://github.com/vapor/async-kit.git",
+        "state": {
+          "branch": null,
+          "revision": "b5742bfbbe2d60f3b77465a0907777261e418f23",
+          "version": "1.0.0-alpha.1"
+        }
+      },
+      {
         "package": "console-kit",
         "repositoryURL": "https://github.com/vapor/console-kit.git",
         "state": {
@@ -23,45 +32,27 @@
         "package": "fluent",
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
-          "branch": "master",
-          "revision": "f7b541a2717e155485c713f2d8ff93b41b6b25af",
-          "version": null
+          "branch": null,
+          "revision": "11849904a11cf6b3b492497572bde72f7d186502",
+          "version": "4.0.0-alpha.1"
         }
       },
       {
         "package": "fluent-kit",
         "repositoryURL": "https://github.com/vapor/fluent-kit.git",
         "state": {
-          "branch": "master",
-          "revision": "38bb1b63cea4b72dc0c77b6618b2852cb18674bb",
-          "version": null
+          "branch": null,
+          "revision": "e7d2f4ac04d83e4e6bdf1192c8c113ddd5c4cb79",
+          "version": "1.0.0-alpha.1"
         }
       },
       {
         "package": "fluent-sqlite-driver",
-        "repositoryURL": "https://github.com/vapor/fluent-sqlite.git",
+        "repositoryURL": "https://github.com/vapor/fluent-sqlite-driver.git",
         "state": {
-          "branch": "master",
-          "revision": "7a7b76e2d16e5dc93c21d4319ad7f62f95761fa4",
-          "version": null
-        }
-      },
-      {
-        "package": "nio-kit",
-        "repositoryURL": "https://github.com/vapor/nio-kit.git",
-        "state": {
-          "branch": "master",
-          "revision": "161b2d7aa2d07af1501453a368638ca6a1a51f15",
-          "version": null
-        }
-      },
-      {
-        "package": "nio-sqlite",
-        "repositoryURL": "https://github.com/vapor/nio-sqlite.git",
-        "state": {
-          "branch": "master",
-          "revision": "72bacae69dc921a9e73adb9964ea46e007d79807",
-          "version": null
+          "branch": null,
+          "revision": "eadc7be2482a7c4cbf3b2f8da07a962f098abcf0",
+          "version": "4.0.0-alpha.1"
         }
       },
       {
@@ -84,11 +75,29 @@
       },
       {
         "package": "sql-kit",
-        "repositoryURL": "https://github.com/vapor/sql.git",
+        "repositoryURL": "https://github.com/vapor/sql-kit.git",
         "state": {
-          "branch": "master",
-          "revision": "003d250bf4ae3ea8ac68605d138363ce0075e374",
-          "version": null
+          "branch": null,
+          "revision": "1bde2394ad31a00b47900a66d2b8a3768ece8433",
+          "version": "3.0.0-alpha.1.1"
+        }
+      },
+      {
+        "package": "sqlite-kit",
+        "repositoryURL": "https://github.com/vapor/sqlite-kit.git",
+        "state": {
+          "branch": null,
+          "revision": "76662fc13fe1de84c68d7fb828a0e791d4c37fe0",
+          "version": "4.0.0-alpha.1"
+        }
+      },
+      {
+        "package": "sqlite-nio",
+        "repositoryURL": "https://github.com/vapor/sqlite-nio.git",
+        "state": {
+          "branch": null,
+          "revision": "c203fd495d2007120ff8c5b38d393acc7fac3490",
+          "version": "1.0.0-alpha.1"
         }
       },
       {
@@ -149,9 +158,9 @@
         "package": "vapor",
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
-          "branch": "master",
-          "revision": "857eb912b8bde8662e765cbec7675b10cfe924f6",
-          "version": null
+          "branch": null,
+          "revision": "22bd569b47fbbaa8bb97ce4a5129bba221f9f544",
+          "version": "4.0.0-alpha.1.1"
         }
       }
     ]

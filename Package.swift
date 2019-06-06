@@ -1,13 +1,13 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.1
 import PackageDescription
 
 let package = Package(
     name: "app",
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", .branch("master")),
-        .package(url: "https://github.com/vapor/fluent.git", .branch("master")),
-        .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", .branch("master")),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0-alpha"),
+        .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0-alpha"),
+        .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.0-alpha"),
     ],
     targets: [
         .target(name: "App", dependencies: ["Fluent", "FluentSQLiteDriver", "Vapor"]),
