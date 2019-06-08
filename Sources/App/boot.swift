@@ -2,5 +2,6 @@ import Vapor
 
 /// Called after your application has initialized.
 public func boot(_ app: Application) throws {
-    // your code here
+    try LoggingSystem.bootstrap(from: &app.environment)
+    try app.boot()
 }
