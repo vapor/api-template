@@ -32,9 +32,9 @@
         "package": "fluent",
         "repositoryURL": "https://github.com/vapor/fluent.git",
         "state": {
-          "branch": "auto-migrate",
-          "revision": "8d501c2b5a72084c6a45039cde9ae5990c1a1b2a",
-          "version": null
+          "branch": null,
+          "revision": "728fe8afd9a480ec65b71dd95b415ee69dcad35f",
+          "version": "4.0.0-alpha.1.1"
         }
       },
       {
@@ -42,8 +42,8 @@
         "repositoryURL": "https://github.com/vapor/fluent-kit.git",
         "state": {
           "branch": null,
-          "revision": "e7d2f4ac04d83e4e6bdf1192c8c113ddd5c4cb79",
-          "version": "1.0.0-alpha.1"
+          "revision": "f92ceb4c90b93d2fdd1e3067c1a7ccefe40f379f",
+          "version": "1.0.0-alpha.1.3"
         }
       },
       {
@@ -158,9 +158,9 @@
         "package": "vapor",
         "repositoryURL": "https://github.com/vapor/vapor.git",
         "state": {
-          "branch": "auto-migrate",
-          "revision": "61c53b53419a1260a04fa3ba27793e29a9f84aab",
-          "version": null
+          "branch": null,
+          "revision": "95d6c7e2899bb1979a708150d9390e2795b5ae19",
+          "version": "4.0.0-alpha.1.2"
         }
       }
     ]
