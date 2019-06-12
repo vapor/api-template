@@ -3,7 +3,7 @@ import FluentSQLiteDriver
 import Vapor
 
 /// Called before your application initializes.
-public func configure(_ s: inout Services) throws {
+func configure(_ s: inout Services) throws {
     /// Register providers first
     s.provider(FluentProvider())
 
@@ -40,7 +40,7 @@ public func configure(_ s: inout Services) throws {
     
     s.register(Migrations.self) { c in
         var migrations = Migrations()
-        migrations.add(Todo.autoMigration(), to: .sqlite)
+        migrations.add(CreateTodo(), to: .sqlite)
         return migrations
     }
 }
