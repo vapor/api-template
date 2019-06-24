@@ -1,15 +1,47 @@
 import Fluent
 import FluentSQLiteDriver
+import Jobs
+import JobsRedisDriver
+import Redis
 import Vapor
+
+struct FooJob: Job {
+    init() { }
+
+    struct FooData: JobData {
+        var foo: String
+    }
+
+    func dequeue(_ context: JobContext, _ data: FooData) -> EventLoopFuture<Void> {
+        print(data)
+        return context.eventLoop.future()
+    }
+
+    func error(_ context: JobContext, _ error: Error, _ data: FooData) -> EventLoopFuture<Void> {
+        print(error)
+        return context.eventLoop.future()
+    }
+}
 
 /// Called before your application initializes.
 func configure(_ s: inout Services) throws {
     /// Register providers first
     s.provider(FluentProvider())
+    s.provider(JobsProvider())
+    s.provider(RedisProvider())
 
     /// Register routes
     s.extend(Routes.self) { r, c in
         try routes(r, c)
+    }
+
+    // register jobs presistence layer
+    s.register(JobsDriver.self) { c in
+        return try JobsRedisDriver(client: c.make())
+    }
+
+    s.extend(JobsConfiguration.self) { config, c in
+        config.add(FooJob())
     }
 
     /// Register middleware
