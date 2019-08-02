@@ -1,8 +1,14 @@
 import Fluent
 import Vapor
 
-struct Todo: Model {
-    static let shared = Todo()
-    let id = Field<Int?>("id")
-    let title = Field<String>("title")
+final class Todo: Model, Content {
+    @Field var id: Int?
+    @Field var title: String
+
+    init() { }
+
+    init(id: Int? = nil, title: String) {
+        self.id = id
+        self.title = title
+    }
 }

@@ -8,12 +8,12 @@ final class TodoController {
         self.db = db
     }
 
-    func index(req: Request) throws -> EventLoopFuture<[Row<Todo>]> {
+    func index(req: Request) throws -> EventLoopFuture<[Todo]> {
         return Todo.query(on: self.db).all()
     }
 
-    func create(req: Request) throws -> EventLoopFuture<Row<Todo>> {
-        let todo = try req.content.decode(Row<Todo>.self)
+    func create(req: Request) throws -> EventLoopFuture<Todo> {
+        let todo = try req.content.decode(Todo.self)
         return todo.save(on: self.db).map { todo }
     }
 
