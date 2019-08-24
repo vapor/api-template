@@ -3,4 +3,4 @@
 DerivedData
 Package.resolved
 *.xcodeproj
-
+.swiftpm
