@@ -3,7 +3,7 @@ import FluentSQLiteDriver
 import Vapor
 
 /// Called before your application initializes.
-func configure(_ s: inout Services) throws {
+func configure(_ s: inout Services) {
     /// Register providers first
     s.provider(FluentProvider())
 
@@ -27,7 +27,10 @@ func configure(_ s: inout Services) throws {
     }
     
     s.extend(Databases.self) { dbs, c in
-        try dbs.sqlite(configuration: c.make(), threadPool: c.make())
+        try dbs.sqlite(
+            configuration: c.make(),
+            threadPool: c.application.threadPool
+        )
     }
 
     s.register(SQLiteConfiguration.self) { c in
