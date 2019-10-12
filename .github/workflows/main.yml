@@ -6,9 +6,8 @@ jobs:
     steps:
     - uses: docker://vapor/swift:5.1-xenial
       with:
-        args: 
-          - swift
-          - test
+        entrypoint: swift
+        args: test
     - uses: vapor/action/deploy@master
       with:
         app: sound-white-22429
