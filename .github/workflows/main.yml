@@ -4,6 +4,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v1
     - uses: docker://vapor/swift:5.1-xenial
       with:
         entrypoint: swift
