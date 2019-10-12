@@ -13,4 +13,3 @@ jobs:
       uses: vapor/toolbox@action
       with:
         command: cloud --help
-
