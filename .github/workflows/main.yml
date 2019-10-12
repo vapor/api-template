@@ -4,10 +4,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: vapor/action/swift/test@master
-      with:
-        version: 5.1
-        os: xenial
+    - uses: docker://vapor/swift:5.1-xenial
+      run: swift test
     - uses: vapor/action/deploy@master
       with:
         app: sound-white-22429
