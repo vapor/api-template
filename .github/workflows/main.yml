@@ -6,7 +6,10 @@ jobs:
     name: test toolbox
     steps:
     - name: print new help
-      id: hello
       uses: vapor/toolbox@action
       with:
         command: new --help
+    - name: print cloud help
+      uses: vapor/toolbox@action
+      with:
+        command: cloud --help
