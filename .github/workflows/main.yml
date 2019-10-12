@@ -4,11 +4,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: foo
-      uses: vapor/action/deploy@master
+    - uses: vapor/action/deploy@master
       with:
-        env: foo
-    - name: bar
-      uses: vapor/action/deploy@master
-      with:
-        env: bar
+        app: sound-white-22429
+        env: dev
+        branch: master
