@@ -3,9 +3,10 @@ on: [push]
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: Vapor Toolbox
+    name: A job to say hello
     steps:
-    - id: hello
+    - name: Hello world action step
+      id: hello
       uses: vapor/toolbox@action
       with:
         command: new --help
