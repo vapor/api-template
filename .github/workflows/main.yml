@@ -7,6 +7,7 @@ jobs:
     - uses: vapor/action/swift/test@master
       with:
         version: 5.1
+        os: xenial
     - uses: vapor/action/deploy@master
       with:
         app: sound-white-22429
