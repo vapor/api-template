@@ -5,11 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: test toolbox
     steps:
-    - name: print new help
-      uses: vapor/toolbox@action
+    - name: foo
+      uses: vapor/action/deploy@master
       with:
-        command: new --help
-    - name: print cloud help
-      uses: vapor/toolbox@action
+        env: foo
+    - name: bar
+      uses: vapor/action/deploy@master
       with:
-        command: cloud --help
+        env: bar
