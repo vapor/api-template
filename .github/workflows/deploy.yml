@@ -1,7 +1,10 @@
-name: vapor
-on: [push]
+name: Deploy
+on:
+  push:
+    branches:
+      - master
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
@@ -9,6 +12,9 @@ jobs:
       with:
         entrypoint: swift
         args: test
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
     - uses: vapor/action/deploy@master
       with:
         app: sound-white-22429
