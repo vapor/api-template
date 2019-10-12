@@ -1,8 +1,10 @@
 name: deploy
 on:
-  push:
-    branches:
-    - master
+- pull_request
+# on:
+#   push:
+#     branches:
+#     - master
 jobs:
   test:
     runs-on: ubuntu-latest
