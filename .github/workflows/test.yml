@@ -1,9 +1,9 @@
 name: Test
 on:
-  - push
-  - pull_request
+- push
+- pull_request
 jobs:
-  5_1-xenial:
+  xenial:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
