@@ -2,48 +2,30 @@ import Fluent
 import FluentSQLiteDriver
 import Vapor
 
-/// Called before your application initializes.
-func configure(_ s: inout Services) {
-    /// Register providers first
-    s.provider(FluentProvider())
+// Called before your application initializes.
+func configure(_ app: Application) throws {
+    // Register providers first
+    app.provider(FluentProvider())
 
-    /// Register routes
-    s.extend(Routes.self) { r, c in
-        try routes(r, c)
-    }
-
-    /// Register middleware
-    s.register(MiddlewareConfiguration.self) { c in
-        // Create _empty_ middleware config
-        var middlewares = MiddlewareConfiguration()
-        
+    // Register middleware
+    app.register(extension: MiddlewareConfiguration.self) { middlewares, app in
         // Serves files from `Public/` directory
-        /// middlewares.use(FileMiddleware.self)
-        
-        // Catches errors and converts to HTTP response
-        try middlewares.use(c.make(ErrorMiddleware.self))
-        
-        return middlewares
+        // middlewares.use(app.make(FileMiddleware.self))
     }
     
-    s.extend(Databases.self) { dbs, c in
-        try dbs.sqlite(
-            configuration: c.make(),
-            threadPool: c.application.threadPool
-        )
-    }
-
-    s.register(SQLiteConfiguration.self) { c in
-        return .init(storage: .connection(.file(path: "db.sqlite")))
-    }
-
-    s.register(Database.self) { c in
-        return try c.make(Databases.self).database(.sqlite)!
-    }
+    app.databases.sqlite(
+        configuration: .init(storage: .connection(.file(path: "db.sqlite"))),
+        threadPool: app.make(),
+        poolConfiguration: app.make(),
+        logger: app.make(),
+        on: app.make()
+    )
     
-    s.register(Migrations.self) { c in
+    app.register(Migrations.self) { c in
         var migrations = Migrations()
         migrations.add(CreateTodo(), to: .sqlite)
         return migrations
     }
+    
+    try routes(app)
 }
