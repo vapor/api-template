@@ -6,8 +6,7 @@ FROM swift:5.1.1 as builder
 ARG env
 
 RUN apt-get -qq update && apt-get install -y \
-  libssl-dev zlib1g-dev \
-  && rm -r /var/lib/apt/lists/*
+  libssl-dev zlib1g-dev
 WORKDIR /app
 COPY . .
 RUN swift build -c release && mkdir /build && mv `swift build -c release --show-bin-path` /build/bin
