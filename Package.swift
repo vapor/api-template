@@ -14,10 +14,18 @@ let package = Package(
         // 💧 A server-side Swift web framework.
         .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0-beta"),
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0-beta"),
+        .package(url: "https://github.com/vapor/fluent-mysql-driver.git", from: "4.0.0-beta"),
         .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.0-beta"),
+        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0-beta"),
     ],
     targets: [
-        .target(name: "App", dependencies: ["Fluent", "FluentSQLiteDriver", "Vapor"]),
+        .target(name: "App", dependencies: [
+            "Fluent",
+            "FluentMySQLDriver",
+            "FluentPostgresDriver",
+            "FluentSQLiteDriver",
+            "Vapor"
+        ]),
         .target(name: "Run", dependencies: ["App"]),
         .testTarget(name: "AppTests", dependencies: ["App"])
     ]

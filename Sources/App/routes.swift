@@ -1,4 +1,7 @@
 import Fluent
+import FluentSQLiteDriver
+import FluentPostgresDriver
+import FluentMySQLDriver
 import Vapor
 
 func routes(_ app: Application) throws {
@@ -8,6 +11,38 @@ func routes(_ app: Application) throws {
     
     app.get("hello") { req in
         return "Hello, world!"
+    }
+    
+    app.get("db") { req -> EventLoopFuture<String> in
+        MigrationLog.query(on: req.db)
+            .all()
+            .map { "\($0)" }
+    }
+
+    app.get("sql") { req -> EventLoopFuture<String> in
+        (req.db as! SQLDatabase)
+            .select().column("*")
+            .from("fluent")
+            .all()
+            .map { "\($0)" }
+    }
+
+    app.get("postgres") { req -> EventLoopFuture<String> in
+        (req.db as! PostgresDatabase)
+            .query("SELECT * FROM fluent")
+            .map { "\($0)" }
+    }
+
+    app.get("sqlite") { req -> EventLoopFuture<String> in
+        (req.db as! SQLiteDatabase)
+            .query("SELECT * FROM fluent")
+            .map { "\($0)" }
+    }
+
+    app.get("mysql") { req -> EventLoopFuture<String> in
+        (req.db as! MySQLDatabase)
+            .query("SELECT * FROM fluent")
+            .map { "\($0)" }
     }
 
     let todoController = TodoController()

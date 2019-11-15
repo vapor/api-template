@@ -1,9 +1,11 @@
 import Fluent
+import FluentMySQLDriver
+import FluentPostgresDriver
 import FluentSQLiteDriver
 import Vapor
 
-// Called before your application initializes.
-func configure(_ app: Application) throws {
+// Called before your application boots after initialization.
+public func configure(_ app: Application) throws {
     // Register providers first
     app.provider(FluentProvider())
 
@@ -13,19 +15,30 @@ func configure(_ app: Application) throws {
         // middlewares.use(app.make(FileMiddleware.self))
     }
     
-    app.databases.sqlite(
-        configuration: .init(storage: .connection(.file(path: "db.sqlite"))),
-        threadPool: app.make(),
-        poolConfiguration: app.make(),
-        logger: app.make(),
-        on: app.make()
-    )
+    app.register(extension: Databases.self) { dbs, app in
+        dbs.use(.sqlite(file: "db.sqlite"), as: .sqlite)
+        dbs.use(.postgres(
+            hostname: "localhost",
+            username: "vapor_username",
+            password: "vapor_password",
+            database: "vapor_database"
+        ), as: .psql)
+        dbs.use(.mysql(
+            hostname: "localhost",
+            username: "vapor_username",
+            password: "vapor_password",
+            database: "vapor_database"
+        ), as: .default)
+        dbs.middleware.use(TodoMiddleware(), on: .sqlite)
+    }
     
-    app.register(Migrations.self) { c in
-        var migrations = Migrations()
-        migrations.add(CreateTodo(), to: .sqlite)
-        return migrations
+    app.register(extension: Migrations.self) { migrations, app in
+        migrations.add(CreateTodo(), to: .default)
     }
     
     try routes(app)
+}
+
+struct TodoMiddleware: ModelMiddleware {
+    typealias Model = Todo
 }

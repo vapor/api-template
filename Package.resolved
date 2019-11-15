@@ -38,24 +38,6 @@
         }
       },
       {
-        "package": "fluent-kit",
-        "repositoryURL": "https://github.com/vapor/fluent-kit.git",
-        "state": {
-          "branch": null,
-          "revision": "2907bfd11743909c63ccde89cb2c66b1c8d1d645",
-          "version": "1.0.0-beta.1"
-        }
-      },
-      {
-        "package": "fluent-sqlite-driver",
-        "repositoryURL": "https://github.com/vapor/fluent-sqlite-driver.git",
-        "state": {
-          "branch": null,
-          "revision": "987900d8ea4b77f00eb9df5aac1b11f0cdb8ae87",
-          "version": "4.0.0-beta.1"
-        }
-      },
-      {
         "package": "multipart-kit",
         "repositoryURL": "https://github.com/vapor/multipart-kit.git",
         "state": {
@@ -83,15 +65,6 @@
         }
       },
       {
-        "package": "sql-kit",
-        "repositoryURL": "https://github.com/vapor/sql-kit.git",
-        "state": {
-          "branch": null,
-          "revision": "2a05245bd3b1a27acc83597dca25ac52358073e5",
-          "version": "3.0.0-beta.1"
-        }
-      },
-      {
         "package": "sqlite-kit",
         "repositoryURL": "https://github.com/vapor/sqlite-kit.git",
         "state": {
@@ -101,21 +74,12 @@
         }
       },
       {
-        "package": "sqlite-nio",
-        "repositoryURL": "https://github.com/vapor/sqlite-nio.git",
-        "state": {
-          "branch": null,
-          "revision": "e3a36bc2b1c958da8d38de20b1396aefdea78478",
-          "version": "1.0.0-alpha.1.3"
-        }
-      },
-      {
         "package": "swift-log",
         "repositoryURL": "https://github.com/apple/swift-log.git",
         "state": {
           "branch": null,
-          "revision": "e8aabbe95db22e064ad42f1a4a9f8982664c70ed",
-          "version": "1.1.1"
+          "revision": "74d7b91ceebc85daf387ebb206003f78813f71aa",
+          "version": "1.2.0"
         }
       },
       {
@@ -123,8 +87,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio.git",
         "state": {
           "branch": null,
-          "revision": "8066b0f581604e3711979307a4377457e2b0f007",
-          "version": "2.9.0"
+          "revision": "bc661cbb771328e09faa65432628e9ff6fd333d5",
+          "version": "2.10.0"
         }
       },
       {
@@ -141,8 +105,8 @@
         "repositoryURL": "https://github.com/apple/swift-nio-http2.git",
         "state": {
           "branch": null,
-          "revision": "790cf6fd2b899e0b10cf462389556475ead81dbf",
-          "version": "1.6.1"
+          "revision": "994c319e038e013817a21d4679fa2d73b838a703",
+          "version": "1.7.0"
         }
       },
       {
