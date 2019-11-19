@@ -12,11 +12,13 @@ let package = Package(
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0-beta"),
-        .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0-beta"),
-        .package(url: "https://github.com/vapor/fluent-mysql-driver.git", from: "4.0.0-beta"),
-        .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.0-beta"),
-        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0-beta"),
+        .package(url: "https://github.com/vapor/vapor.git", .branch("master")),
+        .package(url: "https://github.com/vapor/fluent.git", .branch("master")),
+        .package(url: "https://github.com/vapor/fluent-mysql-driver.git", .branch("master")),
+        .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", .branch("master")),
+        .package(url: "https://github.com/vapor/fluent-postgres-driver.git", .branch("master")),
+        .package(url: "https://github.com/vapor/leaf.git", .branch("master")),
+        .package(url: "https://github.com/vapor/jwt-kit.git", .branch("master")),
     ],
     targets: [
         .target(name: "App", dependencies: [
@@ -24,6 +26,8 @@ let package = Package(
             "FluentMySQLDriver",
             "FluentPostgresDriver",
             "FluentSQLiteDriver",
+            "Leaf",
+            "JWTKit",
             "Vapor"
         ]),
         .target(name: "Run", dependencies: ["App"]),

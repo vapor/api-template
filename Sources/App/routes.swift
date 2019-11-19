@@ -13,6 +13,10 @@ func routes(_ app: Application) throws {
         return "Hello, world!"
     }
     
+    app.get("view") { req -> EventLoopFuture<View> in
+        req.view.render("hello.txt", ["name": "world"])
+    }
+    
     app.get("db") { req -> EventLoopFuture<String> in
         MigrationLog.query(on: req.db)
             .all()
