@@ -26,9 +26,10 @@ public func configure(_ app: Application) throws {
         username: "vapor_username",
         password: "vapor_password",
         database: "vapor_database"
-    ), as: .default)
+    ), as: .mysql)
+    app.databases.default(to: .mysql)
     app.databases.middleware.use(TodoMiddleware(), on: .sqlite)
-    app.migrations.add(CreateTodo(), to: .default)
+    app.migrations.add(CreateTodo(), to: .sqlite)
     app.directory.viewsDirectory = app.directory.publicDirectory
     
     app.sessions.use(database: .sqlite)
