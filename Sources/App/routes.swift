@@ -48,6 +48,11 @@ func routes(_ app: Application) throws {
             .query("SELECT * FROM fluent")
             .map { "\($0)" }
     }
+    
+    app.get("email") { req in
+        req.jobs.dispatch(Email.self, .init(to: "tanner@vapor.codes"))
+            .map { HTTPStatus.ok }
+    }
 
     let todoController = TodoController()
     app.get("todos", use: todoController.index)

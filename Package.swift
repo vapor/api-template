@@ -7,7 +7,8 @@ let package = Package(
        .macOS(.v10_15)
     ],
     products: [
-        .executable(name: "Run", targets: ["Run"]),
+        .executable(name: "serve", targets: ["Run"]),
+        .executable(name: "jobs", targets: ["Run"]),
         .library(name: "App", targets: ["App"]),
     ],
     dependencies: [
@@ -18,7 +19,9 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", .branch("master")),
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", .branch("master")),
         .package(url: "https://github.com/vapor/leaf.git", .branch("master")),
+        .package(url: "https://github.com/vapor/jobs.git", .branch("master")),
         .package(url: "https://github.com/vapor/jwt-kit.git", .branch("master")),
+        .package(url: "https://github.com/vapor/jobs-redis-driver.git", .branch("master"))
     ],
     targets: [
         .target(name: "App", dependencies: [
@@ -27,6 +30,8 @@ let package = Package(
             "FluentPostgresDriver",
             "FluentSQLiteDriver",
             "Leaf",
+            "Jobs",
+            "JobsRedisDriver",
             "JWTKit",
             "Vapor"
         ]),
