@@ -1,3 +1,4 @@
+import APNS
 import Fluent
 import FluentMySQLDriver
 import FluentPostgresDriver
@@ -9,11 +10,6 @@ import Vapor
 
 // Called before your application boots after initialization.
 public func configure(_ app: Application) throws {
-    // Register providers first
-    app.use(Fluent.self)
-    app.use(Leaf.self)
-    app.use(Jobs.self)
-
     // Register middleware
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
     
@@ -35,7 +31,7 @@ public func configure(_ app: Application) throws {
     app.migrations.add(CreateTodo(), to: .sqlite)
     app.directory.viewsDirectory = app.directory.publicDirectory
     
-    app.sessions.use(database: .sqlite)
+    app.sessions.use(.fluent(.sqlite))
     
     try app.jobs.use(.redis(url: "redis://localhost:6379"))
     app.jobs.add(Email())

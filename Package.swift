@@ -20,11 +20,13 @@ let package = Package(
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", .branch("master")),
         .package(url: "https://github.com/vapor/leaf.git", .branch("master")),
         .package(url: "https://github.com/vapor/jobs.git", .branch("master")),
-        .package(url: "https://github.com/vapor/jwt-kit.git", .branch("master")),
-        .package(url: "https://github.com/vapor/jobs-redis-driver.git", .branch("master"))
+        .package(url: "https://github.com/vapor/jwt.git", .branch("master")),
+        .package(url: "https://github.com/vapor/jobs-redis-driver.git", .branch("master")),
+        .package(url: "https://github.com/vapor/apns.git", .branch("master")),
     ],
     targets: [
         .target(name: "App", dependencies: [
+            "APNS",
             "Fluent",
             "FluentMySQLDriver",
             "FluentPostgresDriver",
@@ -32,7 +34,7 @@ let package = Package(
             "Leaf",
             "Jobs",
             "JobsRedisDriver",
-            "JWTKit",
+            "JWT",
             "Vapor"
         ]),
         .target(name: "Run", dependencies: ["App"]),
