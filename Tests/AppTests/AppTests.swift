@@ -8,10 +8,10 @@ final class AppTests: XCTestCase {
         defer { app.shutdown() }
         try configure(app)
 
-        app.databases.use(.sqlite(configuration: .init(storage: .memory)), as: .test, isDefault: true)
-
-        try app.migrator.setupIfNeeded().wait()
-        try app.migrator.prepareBatch().wait()
+        // replace default database with in-memory db for testing
+        app.databases.use(.sqlite(.memory), as: .test, isDefault: true)
+        // run migrations automatically
+        try app.autoMigrate().wait()
 
         try app.test(.GET, "todos") { res in
             XCTAssertContent([Todo].self, res) {
