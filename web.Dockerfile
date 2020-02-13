@@ -15,6 +15,7 @@ RUN apt-get update -y \
 RUN swift build \
 	--enable-test-discovery \
 	-c release
+	-Xswiftc -g
 
 # ================================
 # Run image
