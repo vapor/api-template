@@ -1,7 +1,7 @@
 # ================================
 # Build image
 # ================================
-FROM vapor/swift:5.1 as build
+FROM vapor/swift:5.2 as build
 WORKDIR /build
 
 # Copy entire repo into container
@@ -14,7 +14,7 @@ RUN apt-get update -y \
 # Compile with optimizations
 RUN swift build \
 	--enable-test-discovery \
-	-c release
+	-c release \
 	-Xswiftc -g
 
 # ================================
