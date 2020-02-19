@@ -14,7 +14,7 @@ RUN apt-get update -y \
 # Compile with optimizations
 RUN swift build \
 	--enable-test-discovery \
-	-c release
+	-c release \
 	-Xswiftc -g
 
 # ================================
