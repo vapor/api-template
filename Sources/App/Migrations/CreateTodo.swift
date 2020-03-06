@@ -3,7 +3,7 @@ import Fluent
 struct CreateTodo: Migration {
     func prepare(on database: Database) -> EventLoopFuture<Void> {
         return database.schema("todos")
-            .field("id", .int, .identifier(auto: true))
+            .id()
             .field("title", .string, .required)
             .create()
     }
