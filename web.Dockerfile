@@ -21,11 +21,13 @@ RUN swift build \
 # Run image
 # ================================
 FROM vapor/ubuntu:18.04
-WORKDIR /run
+WORKDIR /app
+
+ENV PORT 80
 
 # Copy build artifacts
-COPY --from=build /build/.build/release /run
+COPY --from=build /build/.build/release /app
 # Copy Swift runtime libraries
 COPY --from=build /usr/lib/swift/ /usr/lib/swift/
 
-ENTRYPOINT ["./Run", "serve", "--env", "production", "--hostname", "0.0.0.0", "--port", "80"]
+CMD ./Run serve --env production --hostname 0.0.0.0 --port $PORT
